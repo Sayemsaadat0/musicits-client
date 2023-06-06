@@ -1,8 +1,10 @@
+import LayoutConTainer from "../../LayOutContainer/LayoutConTainer";
+
 const Home = () => {
     return (
-        <div>
-            home
-        </div>
+        <LayoutConTainer>
+           this is home
+        </LayoutConTainer>
     );
 };
 

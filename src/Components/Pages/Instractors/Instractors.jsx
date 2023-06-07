@@ -5,126 +5,124 @@ const Instractors = () => {
     return (
         <div>
             <Cover text={'Our Instractros'} subtext={'Meet our inspiring instructors: skilled, passionate, and ready to guide you on your musical journey'}></Cover>
-            instractors
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 mb-5 md:px-5'>
                 <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="button">Listen</button>
-                        </div>
-                    </div>
-                </div>
-                {/*  */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">New album is released!</h2>
                         <p>Click the button to listen on Spotiwhy app.</p>
                         <div className="card-actions">
-                            <button className="button">Listen</button>
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
+                        </div>
+                    </div>
+                </div>
+                {/*  */}
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img className='hover:scale-110 duration-500' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app.</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
                         </div>
                     </div>
                 </div>

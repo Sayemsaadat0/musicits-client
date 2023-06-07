@@ -1,0 +1,72 @@
+[
+    {
+      "price": "$1149",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 30,
+      "class_name": "guiter",
+      "instractor_name": "Dora Castillo"
+    },
+    {
+      "price": "$1041",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 40,
+      "class_name": "guiter",
+      "instractor_name": "Mendez Rosario"
+    },
+    {
+      "price": "$1904",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 37,
+      "class_name": "guiter",
+      "instractor_name": "Marci Garner"
+    },
+    {
+      "price": "$1364",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 40,
+      "class_name": "guiter",
+      "instractor_name": "Perez Howell"
+    },
+    {
+      "price": "$1873",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 39,
+      "class_name": "guiter",
+      "instractor_name": "Rachael Baldwin"
+    },
+    {
+      "price": "$1825",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 32,
+      "class_name": "guiter",
+      "instractor_name": "Foreman Velasquez"
+    },
+    {
+      "price": "$1122",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 26,
+      "class_name": "guiter",
+      "instractor_name": "Craig Mack"
+    },
+    {
+      "price": "$1992",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 33,
+      "class_name": "guiter",
+      "instractor_name": "Hobbs Nolan"
+    },
+    {
+      "price": "$1789",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 33,
+      "class_name": "guiter",
+      "instractor_name": "Aline Phillips"
+    },
+    {
+      "price": "$1177",
+      "picture": "http://placehold.it/32x32",
+      "available_seat": 31,
+      "class_name": "guiter",
+      "instractor_name": "Daugherty Key"
+    }
+  ]

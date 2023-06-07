@@ -5,7 +5,7 @@ import './Main.css'
 
 const Main = () => {
     return (
-        <div>
+        <div className="">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footar></Footar>

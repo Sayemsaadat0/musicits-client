@@ -3,7 +3,7 @@ import Slide from 'react-reveal/Slide'
 const Footar = () => {
     return (
         <div >
-           <Slide top> <footer  className="footer footer-center p-10 bg-black text-white mt-20">
+           <Slide top> <footer  className="footer footer-center p-10 bg-black text-white ">
                 <div>
                     <img className='w-40' src="https://i.ibb.co/RDVdLN4/woops.png" alt="" />
                     <p className="font-bold">

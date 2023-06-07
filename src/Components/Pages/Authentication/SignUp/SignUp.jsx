@@ -1,7 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
+import useAuth from "../../../../Hooks/useAuth";
 
 const SignUp = () => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+    const navigate = useNavigate()
+    const { createUser, updateUserProfile, logOut } = useAuth()
+    const onSubmit = data => {
+        
+        console.log(data)
+         createUser(data.email , data.password)
+        .then(result=>{
+            const logedUser = result.user 
+            console.log(logedUser)
+            alert('user register')
+            navigate('/login')
+        })
+        .catch(error=>console.log(error))
+    };
+    // todo  password and confirm password + regex + image url with password
     return (
         <div>
 
@@ -12,9 +31,10 @@ const SignUp = () => {
                             <h1 className="mb-2 text-2xl">Sign Up here</h1>
                             <span className="">Enter Your Details</span>
                         </div>
-                        <form className=' '>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4 text-lg">
                                 <input
+                                  {...register("name", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="text"
                                     name="name"
@@ -22,6 +42,7 @@ const SignUp = () => {
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
+                                  {...register("email", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="email"
                                     name="email"
@@ -29,14 +50,17 @@ const SignUp = () => {
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
+                                  {...register("image-url", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="text"
                                     name="photo"
-                                    placeholder="Photo URl" />
+                                    placeholder="image-url" />
+                                     {errors.immage && <span>photo is required</span>}
                             </div>
 
                             <div className="mb-4 text-lg">
                                 <input
+                                  {...register("password", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="Password"
                                     name="password"
@@ -44,6 +68,7 @@ const SignUp = () => {
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
+                                  {...register("confirm", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="Password"
                                     name="confirm"

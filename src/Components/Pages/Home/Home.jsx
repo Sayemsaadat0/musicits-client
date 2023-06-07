@@ -1,4 +1,5 @@
 import Banner from './Banner/Banner';
+import PopularClasses from './Popularclasses/PopularClasses';
 import TopSlider from './TopSlider/TopSlider';
 
 const Home = () => {
@@ -8,8 +9,10 @@ const Home = () => {
                 <Banner></Banner>
             </section>
             <section className='mt-10 text-center'>
-
                 <TopSlider></TopSlider>
+            </section>
+            <section className='mt-10 text-center'>
+                <PopularClasses></PopularClasses>
             </section>
 
         </div>

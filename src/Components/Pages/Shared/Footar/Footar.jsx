@@ -1,9 +1,9 @@
 import { CiTwitter, CiInstagram,CiFacebook  } from 'react-icons/ci';
-
+import Slide from 'react-reveal/Slide'
 const Footar = () => {
     return (
-        <div>
-            <footer className="footer footer-center p-10 bg-black text-white">
+        <div >
+           <Slide top> <footer style={{borderRadius: '100px 0 0 0'}} className="footer footer-center p-10 bg-black text-white mt-20">
                 <div>
                     <img className='w-40' src="https://i.ibb.co/RDVdLN4/woops.png" alt="" />
                     <p className="font-bold">
@@ -19,7 +19,7 @@ const Footar = () => {
                        
                     </div>
                 </div>
-            </footer>
+            </footer></Slide>
         </div>
     );
 };

@@ -9,7 +9,7 @@ const Navbar = () => {
             .catch(error => console.log(error))
     }
     const navOptions =
-        <div className="flex justify-between  items-center">
+        <div className="flex justify-between  items-center" >
             <NavLink className='mx-3' to='/'>Home</NavLink>
             <NavLink className='mx-3' to='/register'>Instractors</NavLink>
             <NavLink className='mx-3'>Classes</NavLink>
@@ -22,7 +22,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-black flex justify-between text-white">
+        <div  className="navbar bg-black flex justify-between text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -9,6 +9,7 @@ import slider5 from '../../../../assets/home/slider(5).png'
 import slider6 from '../../../../assets/home/slider(6).png'
 import slider8 from '../../../../assets/home/slider(8).png'
 import slider9 from '../../../../assets/home/slider(9).png'
+import { Fade } from 'react-reveal';
 
 const animation = { duration: 30000, easing: (t) => t }
 
@@ -28,9 +29,10 @@ const TopSlider = () => {
         },
     })
     return (
-       <div>
+      <Fade left>
+         <div>
         <SectionTitle title1={'Unlock Your Musical'} title2={' Potential'} subtitle={'Dive into the world of music with our slider section, where you can embark on a transformative journey of learning and mastering various instruments.'}></SectionTitle>
-         <div ref={sliderRef} className="keen-slider mt-6">
+         <div ref={sliderRef}  style={{borderRadius: '100px 0 100px 0'}}className="keen-slider mt-6">
             <div className="keen-slider__slide number-slide1"><img src={slider1} alt="" /></div>
             <div className="keen-slider__slide number-slide1"><img src={slider2} alt="" /></div>
             <div className="keen-slider__slide number-slide1"><img src={slider3} alt="" /></div>
@@ -42,6 +44,7 @@ const TopSlider = () => {
            
         </div>
        </div>
+      </Fade>
     );
 };
 

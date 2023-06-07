@@ -1,4 +1,5 @@
 import Banner from './Banner/Banner';
+import OurHistory from './OurHIstory/OurHistory';
 import PopularInstractor from './PopularInstractor/PopularInstractor';
 import PopularClasses from './Popularclasses/PopularClasses';
 import TopSlider from './TopSlider/TopSlider';
@@ -17,6 +18,9 @@ const Home = () => {
             </section>
             <section className='mt-20 text-center'>
                <PopularInstractor></PopularInstractor>
+            </section>
+            <section className='mt-20 text-center'>
+              <OurHistory></OurHistory>
             </section>
 
         </div>

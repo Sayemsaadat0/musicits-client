@@ -1,10 +1,18 @@
-import banner from '../../../assets/home/banner.png'
+import Banner from './Banner/Banner';
+import TopSlider from './TopSlider/TopSlider';
 
 const Home = () => {
     return (
-      
-       <img className="w-auto object-cover" src={banner} alt="" />
-    
+        <div>
+            <section>
+                <Banner></Banner>
+            </section>
+            <section className='mt-10 text-center'>
+
+                <TopSlider></TopSlider>
+            </section>
+
+        </div>
     );
 };
 

@@ -1,10 +1,10 @@
-import LayoutConTainer from "../../LayOutContainer/LayoutConTainer";
+import banner from '../../../assets/home/banner.png'
 
 const Home = () => {
     return (
-        <LayoutConTainer>
-           this is home
-        </LayoutConTainer>
+      
+       <img className="w-auto object-cover" src={banner} alt="" />
+    
     );
 };
 

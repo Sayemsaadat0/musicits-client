@@ -4,6 +4,7 @@ import ErrorPage from "../LayOuts/ErrorElement/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Authentication/Login/Login";
 import SignUp from "../Pages/Authentication/SignUp/SignUp";
+import Instractors from "../Pages/Instractors/Instractors";
 
 
 
@@ -17,6 +18,10 @@ import SignUp from "../Pages/Authentication/SignUp/SignUp";
         {
           path : '/',
           element : <Home></Home>
+        },
+        {
+          path : '/instractors',
+          element : <Instractors></Instractors>
         },
         {
           path : 'login',

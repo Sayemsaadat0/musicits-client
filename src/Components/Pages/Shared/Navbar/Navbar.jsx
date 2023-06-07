@@ -11,7 +11,7 @@ const Navbar = () => {
     const navOptions =
         <div className="flex justify-between  items-center" >
             <NavLink className='mx-3' to='/'>Home</NavLink>
-            <NavLink className='mx-3' to='/register'>Instractors</NavLink>
+            <NavLink className='mx-3' to='/instractors'>Instractors</NavLink>
             <NavLink className='mx-3'>Classes</NavLink>
             {
                 user ?

@@ -3,6 +3,7 @@ import './style.css'
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import Slide from 'react-reveal/Slide'
 const PopularInstractor = () => {
+    // todo  prottek teacher er nam
     return (
         <div>
             <SectionTitle title1={'Meet Our Popular Instructors:'} title2={'Learn from the Best'}subtitle={'Get ready to learn from the crème de la crème of music instruction with our popular instructors. These highly skilled  musicians bring their wealth of expertise and passion to our platform, offering you the opportunity to receive top-notch instruction from the best in the business. '}></SectionTitle>

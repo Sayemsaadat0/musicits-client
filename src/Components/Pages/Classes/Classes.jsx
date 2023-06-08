@@ -28,7 +28,9 @@ const Classes = () => {
                           </LazyLoad>
                             <div className="card-body">
                                 <h2 className="card-title">{item.class_name}</h2>
-                                <p>{item.instractor_name}</p>
+                                <p className='font-semibold'>{item.instractor_name}</p>
+                                <p>Available Seats : {item.available_seat}</p>
+                                <p>Price : <span className='text-red-500'>{item.price}</span></p>
                                 <div className="card-actions ">
                                     <button className="button">Select</button>
                                 </div>

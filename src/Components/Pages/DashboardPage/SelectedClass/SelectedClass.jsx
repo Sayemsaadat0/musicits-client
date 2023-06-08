@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { Fade } from 'react-reveal';
 import { Helmet } from 'react-helmet-async';
+import { BsTrash } from 'react-icons/bs'
 
 
 const SelectedClass = () => {
@@ -35,18 +36,18 @@ const SelectedClass = () => {
                                 <td>Cy Ganderton</td>
                                 <td>Quality Control Specialist</td>
                                 <td>Blue</td>
-                                <td><Link className='button'>Pay</Link></td>
-                                <td><button className='button'>Delete</button></td>
+                                <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
+                                <td><button class="delete"><BsTrash></BsTrash> </button></td>
                             </tr>
-                            {/* row 2 */}
                             <tr>
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>Desktop Support Technician</td>
-                                <td>Purple</td>
-                                <td><Link className='button'>Pay</Link></td>
-                                <td><button className='button'>Delete</button></td>
+                                <th>1</th>
+                                <td>Cy Ganderton</td>
+                                <td>Quality Control Specialist</td>
+                                <td>Blue</td>
+                                <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
+                                <td><button class="delete"><BsTrash></BsTrash> </button></td>
                             </tr>
+                         
                         </tbody>
                     </table>
                 </div>
@@ -58,11 +59,3 @@ const SelectedClass = () => {
 export default SelectedClass;
 
 
-/* 
- {
-      "price": "$1041",
-      "picture": "http://placehold.it/32x32",
-      "available_seat": 40,
-      "class_name": "guiter",
-      "instractor_name": "Mendez Rosario"
-    }, */

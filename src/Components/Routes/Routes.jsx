@@ -10,6 +10,7 @@ import Dashboard from "../LayOuts/Dashboard/Dashboard";
 import SelectedClass from "../Pages/DashboardPage/SelectedClass/SelectedClass";
 import EnrolledClass from "../Pages/DashboardPage/EnrolledClass/EnrolledClass";
 import PaymentHistory from "../Pages/DashboardPage/PaymentHistory/PaymentHistory";
+import Pay from "../Pages/DashboardPage/PaymentHistory/Pay";
 
 
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path : 'selectedclass',
         element : <SelectedClass></SelectedClass>
+      },
+      {
+        path : 'pay',
+        element : <Pay></Pay>
       },
       {
         path : 'enrolledclass',

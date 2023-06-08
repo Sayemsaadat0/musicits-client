@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Cover from '../Shared/Cover/Cover';
 import { Fade } from 'react-reveal';
 import { Helmet } from 'react-helmet-async';
+import LazyLoad from 'react-lazy-load';
 
 const Instractors = () => {
+    const [items, setitems] = useState([]);
+
+useEffect(() => {
+    fetch('instractor.json')
+        .then(res => res.json())
+        .then(data => setitems(data))
+}, []);
     return (
         <div>
             <Helmet>
@@ -13,127 +21,20 @@ const Instractors = () => {
             <Cover text={'Our Instractros'} subtext={'Meet our inspiring instructors: skilled, passionate, andreadytoguideyou on your musical journey'}></Cover>
             <Fade top>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 mb-5 md:px-5 h-screen'>
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
+                  {
+                    items.map(item =>  <div key={item.name} className="card lg:card-side bg-base-100 shadow-xl">
+                 <LazyLoad threshold={0.95}>
+                 <figure><img className='hover:scale-110 duration-500 h-full w-full' src={item.picture} alt="Album" /></figure>
+                 </LazyLoad>
+                    <div className="card-body">
+                        <h2 className="font-semibold">{item.name}</h2>
+                        <p>{item.email}</p>
+                        <div className="card-actions">
+                            <button className="button">See Classes</button>
                         </div>
                     </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='hover:scale-110 duration-500 h-full w-full' src="https://i.ibb.co/c6CGYtV/1.png" alt="Album" /></figure>
-                        <div className="card-body">
-                            <h2 className="font-semibold">Name of the teacher!</h2>
-                            <p>andtheiremail@gmail.com</p>
-                            <div className="card-actions">
-                                <button className="button">See Classes</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/*  */}
+                </div>)
+                  }
                 </div>
             </Fade>
         </div>
@@ -146,14 +47,3 @@ export default Instractors;
 
 
 
-/* 
-https://i.ibb.co/rZH7gRS/2.png
-https://i.ibb.co/vVd6D8Z/3.png
-https://i.ibb.co/mt0z4xN/4.png
-https://i.ibb.co/wwNn8LS/5.png
-https://i.ibb.co/WHSJkSj/6.png
-https://i.ibb.co/kMPNMFM/7.png
-https://i.ibb.co/LCCv0L2/8.png
-https://i.ibb.co/58wZtjN/9.png
-https://i.ibb.co/xMFBshG/10.png
-*/

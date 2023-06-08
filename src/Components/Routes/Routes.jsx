@@ -9,6 +9,7 @@ import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../LayOuts/Dashboard/Dashboard";
 import SelectedClass from "../Pages/DashboardPage/SelectedClass/SelectedClass";
 import EnrolledClass from "../Pages/DashboardPage/EnrolledClass/EnrolledClass";
+import PaymentHistory from "../Pages/DashboardPage/PaymentHistory/PaymentHistory";
 
 
 
@@ -53,7 +54,11 @@ const router = createBrowserRouter([
       {
         path : 'enrolledclass',
         element :<EnrolledClass></EnrolledClass>
-      }
+      },
+      {
+        path : 'paymenthistory',
+        element : <PaymentHistory></PaymentHistory>
+      },
     ]
   },
 ]);

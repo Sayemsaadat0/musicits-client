@@ -21,7 +21,7 @@ const Dashboard = ({role}) => {
                         <Link
                             className='button mb-5' to='/dashboard/enrolledclass'>Enrolled classes</Link>
                         <Link
-                            className='button' to=''>payment history</Link> 
+                            className='button' to='/dashboard/paymenthistory'>payment history</Link> 
                             
                            {/* admin */}
                           {/*  {

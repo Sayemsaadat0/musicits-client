@@ -37,7 +37,7 @@ const SelectedClass = () => {
                                 <td>Quality Control Specialist</td>
                                 <td>Blue</td>
                                 <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
-                                <td><button class="delete"><BsTrash></BsTrash> </button></td>
+                                <td><button className="delete"><BsTrash></BsTrash> </button></td>
                             </tr>
                             <tr>
                                 <th>1</th>
@@ -45,7 +45,7 @@ const SelectedClass = () => {
                                 <td>Quality Control Specialist</td>
                                 <td>Blue</td>
                                 <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
-                                <td><button class="delete"><BsTrash></BsTrash> </button></td>
+                                <td><button className="delete"><BsTrash></BsTrash> </button></td>
                             </tr>
                          
                         </tbody>

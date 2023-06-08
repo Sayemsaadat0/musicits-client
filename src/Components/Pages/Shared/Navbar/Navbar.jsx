@@ -15,7 +15,7 @@ const Navbar = () => {
             <NavLink className='mx-3'  to='/classes'>Classes</NavLink>
             {
                 user ?
-                    <NavLink className='mx-3' to='/dashboard/selectedclass'>Dashboard</NavLink>
+                    <NavLink className='mx-3' to='/dashboard/dashboardhome'>Dashboard</NavLink>
                 : <NavLink className='mx-3' to='login'>login</NavLink>
             }
         </div>

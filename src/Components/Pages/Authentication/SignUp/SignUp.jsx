@@ -43,6 +43,7 @@ const SignUp = () => {
                                     type="text"
                                     name="name"
                                     placeholder="Your Name" />
+                                    {errors.name && <span >This field is required</span>}
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
@@ -51,24 +52,27 @@ const SignUp = () => {
                                     type="email"
                                     name="email"
                                     placeholder="Enter Your Email" />
+                                    {errors.email && <span >This field is required</span>}
                             </div>
                             <div className="mb-4 text-lg">
+                                {/* problem = ei jaygatar conditiion full fill hcche na  */}
                                 <input
-                                    {...register("image-url", { required: true })}
+                                    {...register("image_url", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="text"
-                                    name="photo"
-                                    placeholder="image-url" />
-                                {errors.immage && <span>photo is required</span>}
+                                    name="image_url"
+                                    placeholder="photo" />
+                                {errors.image_url && <span>photo is required</span>}
                             </div>
 
                             <div className="mb-4 text-lg">
                                 <input
-                                    {...register("password", { required: true })}
+                                    {...register("password", { required: true , minLength: 6})}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="Password"
                                     name="password"
                                     placeholder="Your Password" />
+                                    {errors.password?.type === 'required' && <p>First name is required</p>}
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
@@ -77,6 +81,7 @@ const SignUp = () => {
                                     type="Password"
                                     name="confirm"
                                     placeholder="Confirm Your Password" />
+                                    {errors.confirm && <span >Confirm Your Password</span>}
                             </div>
                             <div className="mt-8 flex justify-center text-lg text-black">
                                 <button
@@ -86,7 +91,7 @@ const SignUp = () => {
                             <div className='mt-4'>
                                 <p>Already have  an account? <Link className='text-red-500' to='/login'>Login</Link> here</p>
                             </div>
-                            <div className='mx-auto text-center mt-10'>
+                            <div className='mx-auto flex justify-center items-center gap-4 text-center mt-10'>
                                 <p>or login with</p>
                                 <SocialLogin></SocialLogin>
                             </div>

@@ -49,7 +49,7 @@ const Navbar = () => {
                     user ? <div className="flex items-center mx-2">
                              <button className='mx-4' onClick={handleLogOut}>Logut</button>
                     <img height={30} width={30} className="rounded-full" src={user.photoURL} alt="" />
-                    </div> : <img height={30} width={30} className="rounded-full" src='' alt="sjsj" />
+                    </div> : <img height={30} width={30} className="rounded-full" src='https://i.ibb.co/LtmBWrM/3.png' alt="s" />
                 }
             </div>
 

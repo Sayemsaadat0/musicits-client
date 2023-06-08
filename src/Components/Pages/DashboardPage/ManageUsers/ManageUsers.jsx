@@ -24,7 +24,7 @@ const ManageUsers = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                            <tr>
+                            <tr className='table_row'>
                                 <td>#</td>
                                 <td>
                                     <img height={60} width={60} className='rounded-full' src="https://i.pinimg.com/236x/b1/71/b6/b171b6b2f119b8d319a78000b26c4a74.jpg" alt="Avatar Tailwind CSS Component" />

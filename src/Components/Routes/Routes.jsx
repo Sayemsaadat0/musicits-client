@@ -15,6 +15,7 @@ import AddClass from "../Pages/DashboardPage/AddClass/AddClass";
 import Manageclass from "../Pages/DashboardPage/ManageClass/Manageclass";
 import ManageUsers from "../Pages/DashboardPage/ManageUsers/ManageUsers";
 import DashboardHome from "../Pages/DashboardPage/DashboardHome/DashboardHome";
+import AdminHome from "../Pages/DashboardPage/AdminHome/AdminHome";
 
 
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
     path: 'dashboard',
     element: <Dashboard></Dashboard>,
     children :[
+      {
+        path : 'adminhome',
+        element : <AdminHome></AdminHome>
+      },
       {
         path : 'dashboardhome',
         element : <DashboardHome></DashboardHome>

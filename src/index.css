@@ -132,3 +132,19 @@
       transform: translate(0%, 0%);
     }
   }
+
+
+  /* table-row */
+
+  .table_row{
+    border-radius: 9px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 0px #2b2b2b,
+    inset -5px -5px 0px #ffffff;
+  }
+
+  .box{
+    border-radius: 20px;
+    box-shadow:  24px 24px 57px #b8b8b8,
+    -24px -24px 57px #ffffff;
+  }

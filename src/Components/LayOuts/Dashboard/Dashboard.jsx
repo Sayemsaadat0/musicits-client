@@ -17,14 +17,14 @@ const Dashboard = ({ role }) => {
                         <div className='flex flex-col'>
                             {/* studet */}
 
-                             <Link
+                         {/*     <Link
                             to='/dashboard/dashboardhome' className='button mb-5'>Student Home</Link>
                              <Link
                             to='/dashboard/selectedclass' className='button mb-5'>Selected classes</Link>
                         <Link
                             className='button mb-5' to='/dashboard/enrolledclass'>Enrolled classes</Link>
                         <Link
-                            className='button' to='/dashboard/paymenthistory'>payment history</Link>  
+                            className='button' to='/dashboard/paymenthistory'>payment history</Link>  */} 
 
 
 
@@ -33,16 +33,15 @@ const Dashboard = ({ role }) => {
                             {/*  {
                             role === 'isAdmin' && <></> 
                            } todo manage class*/}
-                            {/*
+                          
+                           
                             <Link
-                            to='/dashboard/dashboardhome' className='button mb-5'>Instractor Hmme</Link> 
-                            <Link
-                                to='' className='button mb-5'>Admin Home</Link>
+                                to='/dashboard/adminhome' className='button mb-5'>Admin Home</Link>
 
                             <Link
                                 to='/dashboard/manageclass' className='button mb-5'>Manage classes</Link>
                             <Link
-                                className='button mb-5' to='/dashboard/manageusers'>manage users</Link> */}
+                                className='button mb-5' to='/dashboard/manageusers'>manage users</Link> 
                   
 
 
@@ -54,7 +53,10 @@ const Dashboard = ({ role }) => {
                             {/*  {
                            role === 'isInstractor' && <> 
                            </>  } {/* todo my class implement */}
-                            {/*  <Link
+                            {/* 
+                             <Link
+                            to='/dashboard/dashboardhome' className='button mb-5'>Instractor Home</Link> 
+                            <Link
                             to='/dashboard/addclass' className='button mb-5'>Add Classes</Link>
                         <Link
                             className='button mb-5' to=''>My Classes</Link> */}

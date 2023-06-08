@@ -7,7 +7,7 @@ const Classes = () => {
     const [items, setitems] = useState([]);
 
     useEffect(() => {
-        fetch('class.json')
+        fetch('http://localhost:4444/classes')
             .then(res => res.json())
             .then(data => setitems(data))
     }, []);

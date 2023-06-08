@@ -13,7 +13,7 @@ import LazyLoad from 'react-lazy-load';
 const PopularClasses = () => {
   const [items, setItems] = useState([])
   useEffect(() => {
-    fetch('popularClass.json')
+    fetch('http://localhost:4444/popularclass')
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])

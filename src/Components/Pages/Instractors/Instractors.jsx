@@ -8,7 +8,7 @@ const Instractors = () => {
     const [items, setitems] = useState([]);
 
 useEffect(() => {
-    fetch('instractor.json')
+    fetch('http://localhost:4444/instractor')
         .then(res => res.json())
         .then(data => setitems(data))
 }, []);

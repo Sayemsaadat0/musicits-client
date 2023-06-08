@@ -11,7 +11,7 @@ const PopularInstractor = () => {
     const [teachers, setTeachers] = useState([]);
 
     useEffect(() => {
-        fetch('popularInstractor.json')
+        fetch('http://localhost:4444/popularinstractor')
             .then(res => res.json())
             .then(data => setTeachers(data))
     }, []);

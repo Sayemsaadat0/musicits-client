@@ -6,6 +6,8 @@ import './Login.css'
 import { useForm } from "react-hook-form";
 import useAuth from '../../../../Hooks/useAuth';
 import LayoutConTainer from '../../../LayOutContainer/LayoutConTainer';
+import { Helmet } from 'react-helmet-async';
+
 
 const Login = () => {
     const { signInUser } = useAuth()
@@ -33,7 +35,10 @@ const Login = () => {
     };
 
     return (
-        <div className=''>
+        <div>
+            <Helmet>
+                <title>musicits || Login</title>
+            </Helmet>
          
                 <div className="flex h-screen x items-center justify-center background  bg-cover bg-no-repeat" >
                     <div className="rounded-xl bg-gray-900 shadow-lg hover:shadow-red-500 px-16 py-10  backdrop-blur-md max-sm:px-8">

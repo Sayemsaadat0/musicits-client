@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -9,20 +10,23 @@ const SignUp = () => {
     const navigate = useNavigate()
     const { createUser, updateUserProfile, logOut } = useAuth()
     const onSubmit = data => {
-        
+
         console.log(data)
-         createUser(data.email , data.password)
-        .then(result=>{
-            const logedUser = result.user 
-            console.log(logedUser)
-            alert('user register')
-            navigate('/login')
-        })
-        .catch(error=>console.log(error))
+        createUser(data.email, data.password)
+            .then(result => {
+                const logedUser = result.user
+                console.log(logedUser)
+                alert('user register')
+                navigate('/login')
+            })
+            .catch(error => console.log(error))
     };
     // todo  password and confirm password + regex + image url with password
     return (
         <div>
+            <Helmet>
+                <title>musicits || Sign up</title>
+            </Helmet>
 
             <div className="flex h-screen w-full items-center justify-center background  bg-cover bg-no-repeat" >
                 <div className="rounded-xl bg-gray-900 shadow-lg hover:shadow-red-500 px-16 py-10  backdrop-blur-md max-sm:px-8">
@@ -34,7 +38,7 @@ const SignUp = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4 text-lg">
                                 <input
-                                  {...register("name", { required: true })}
+                                    {...register("name", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="text"
                                     name="name"
@@ -42,7 +46,7 @@ const SignUp = () => {
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
-                                  {...register("email", { required: true })}
+                                    {...register("email", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="email"
                                     name="email"
@@ -50,17 +54,17 @@ const SignUp = () => {
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
-                                  {...register("image-url", { required: true })}
+                                    {...register("image-url", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="text"
                                     name="photo"
                                     placeholder="image-url" />
-                                     {errors.immage && <span>photo is required</span>}
+                                {errors.immage && <span>photo is required</span>}
                             </div>
 
                             <div className="mb-4 text-lg">
                                 <input
-                                  {...register("password", { required: true })}
+                                    {...register("password", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="Password"
                                     name="password"
@@ -68,7 +72,7 @@ const SignUp = () => {
                             </div>
                             <div className="mb-4 text-lg">
                                 <input
-                                  {...register("confirm", { required: true })}
+                                    {...register("confirm", { required: true })}
                                     className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
                                     type="Password"
                                     name="confirm"

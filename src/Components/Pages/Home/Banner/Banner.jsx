@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div>
              <Fade bottom>
-             < img className="w-auto object-cover"style={{borderRadius: '0 0 100px 0'}} src={banner} alt="" />
+             < img className="w-auto object-cover" src={banner} alt="" />
              </Fade>
         </div>
     );

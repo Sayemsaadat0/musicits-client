@@ -7,6 +7,14 @@
   border-bottom: 4px solid red;
 }
 
+.LazyLoad {
+  opacity: 0;
+  transition: all 4s ease-in-out;
+}
+
+.is-visible {
+  opacity: 2;
+}
 
 .button {
     font-size: 18px;

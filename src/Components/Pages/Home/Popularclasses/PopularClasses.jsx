@@ -51,7 +51,7 @@ const PopularClasses = () => {
                 <LazyLoad threshold={0.95}>
                 <img className='hover:scale-110 duration-500 ' style={{ borderRadius: '100px 0 100px 0' }} src={item.picture} alt="" />
                 </LazyLoad>
-                  <h2 className='text-3xl text-right mr-10'>{item.total_student}</h2>
+                  <h2 className='text-3xl text-right mr-10'>{item.name}</h2>
                 </SwiperSlide>)
             }
 

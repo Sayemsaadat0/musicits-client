@@ -3,10 +3,14 @@ import Fade from 'react-reveal'
 import AdminNav from './AdminNav';
 import AdminChart from './AdminChart';
 import AdminTable from './AdminTable';
+import { Helmet } from 'react-helmet-async';
 
 const AdminHome = () => {
     return (
         <div className='w-full h-screen'>
+            <Helmet>
+                <title>Admin Home</title>
+            </Helmet>
             <AdminNav></AdminNav>
 
            <Fade right>

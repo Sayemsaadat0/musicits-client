@@ -2,6 +2,7 @@ import React from 'react';
 import { Fade } from 'react-reveal';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet-async';
 
 const AddClass = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -9,6 +10,9 @@ const AddClass = () => {
     console.log(errors);
     return (
         <div className='h-screen mt-10' >
+            <Helmet>
+                <title>Musicits || Add class</title>
+            </Helmet>
             <Fade left>
 
                 <SectionTitle title1={'Add a'} title2={'Class'}></SectionTitle>

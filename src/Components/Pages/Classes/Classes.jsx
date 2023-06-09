@@ -22,7 +22,7 @@ const Classes = () => {
 
                 {
                     items.map(item =>
-                        <div key={item.price} className="card glass">
+                        <div style={{ backgroundColor: item.available_seat === 0 ? 'red' : 'white' }} key={item.price} className="card glass">
                           <LazyLoad threshold={0.95}>
                           <figure><img src={item.picture} alt="car!" /></figure>
                           </LazyLoad>
@@ -32,7 +32,7 @@ const Classes = () => {
                                 <p>Available Seats : {item.available_seat}</p>
                                 <p>Price : <span className='text-red-500'>{item.price}</span></p>
                                 <div className="card-actions ">
-                                    <button className="button">Select</button>
+                                    <button disabled={item.available_seat === 0} className="btn hover:bg-red-500 duration-700 px-6 py-2 hover:text-white">Select</button>
                                 </div>
                             </div>
                         </div>)

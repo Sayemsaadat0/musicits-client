@@ -1,10 +1,14 @@
 import React from 'react';
 import { Fade } from 'react-reveal';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 const Manageclass = () => {
     return (
         <div className='w-full h-screen p-4'>
+            <Helmet>
+                <title>Manage Class</title>
+            </Helmet>
             <Fade left>
                 <SectionTitle title1={'Manage'} title2={'All Classes'}></SectionTitle>
                 <div>

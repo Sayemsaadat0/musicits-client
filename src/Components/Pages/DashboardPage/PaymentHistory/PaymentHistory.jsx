@@ -8,7 +8,7 @@ const PaymentHistory = () => {
     return (
         <Fade right>
             <Helmet>
-                <title>musicits || payment</title>
+                <title>musicits || Payment History</title>
             </Helmet>
 
             <div className='h-screen px-5 mt-2 w-full'>

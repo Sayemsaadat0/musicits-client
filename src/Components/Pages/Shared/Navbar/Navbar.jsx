@@ -53,7 +53,7 @@ const Navbar = () => {
                         <LazyLoad threshold={0.95}>
                             <img height={30} width={30} className="rounded-full" src={user.photoURL} alt="" />
                             </LazyLoad>
-                    </div> : <img height={30} width={30} className="rounded-full" src='https://i.ibb.co/LtmBWrM/3.png' alt="s" />
+                    </div> : <img height={30} width={30} className="rounded-full" src='https://i.ibb.co/Rjn0dMK/Stickers-for-Sale.jpg' alt="s" />
                 }
             </div>
 

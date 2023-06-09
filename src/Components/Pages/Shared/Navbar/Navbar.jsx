@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
+import LazyLoad from "react-lazy-load";
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
@@ -12,17 +13,17 @@ const Navbar = () => {
         <div className="flex justify-between  items-center" >
             <NavLink className='mx-3' to='/'>Home</NavLink>
             <NavLink className='mx-3' to='/instractors'>Instractors</NavLink>
-            <NavLink className='mx-3'  to='/classes'>Classes</NavLink>
+            <NavLink className='mx-3' to='/classes'>Classes</NavLink>
             {
                 user ?
                     <NavLink className='mx-3' to='/dashboard/dashboardhome'>Dashboard</NavLink>
-                : <NavLink className='mx-3' to='login'>login</NavLink>
+                    : <NavLink className='mx-3' to='login'>login</NavLink>
             }
         </div>
 
 
     return (
-        <div  className="navbar bg-black flex justify-between text-white">
+        <div className="navbar bg-black flex justify-between text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -47,8 +48,11 @@ const Navbar = () => {
             <div>
                 {
                     user ? <div className="flex items-center mx-2">
-                             <button className='mx-4' onClick={handleLogOut}>Logut</button>
-                    <img height={30} width={30} className="rounded-full" src={user.photoURL} alt="" />
+
+                        <button className='mx-4' onClick={handleLogOut}>Logut</button>
+                        <LazyLoad threshold={0.95}>
+                            <img height={30} width={30} className="rounded-full" src={user.photoURL} alt="" />
+                            </LazyLoad>
                     </div> : <img height={30} width={30} className="rounded-full" src='https://i.ibb.co/LtmBWrM/3.png' alt="s" />
                 }
             </div>

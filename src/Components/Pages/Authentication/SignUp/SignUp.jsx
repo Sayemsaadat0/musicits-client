@@ -9,42 +9,43 @@ const SignUp = () => {
 
     const navigate = useNavigate()
     const { createUser, updateUserProfile, logOut } = useAuth()
-     const onSubmit = data => {
+    const onSubmit = data => {
+        console.log(data)
         if(data.password === data.confirm){
-            console.log(data)
-            createUser(data.email, data.password)
-                .then(result => {
-                    const logedUser = result.user
-                    console.log(logedUser)
-                    if(logedUser){
-                        const userData =  {email : data.email}
-                        fetch('http://localhost:4444/students',{
+            createUser(data.email, data.password, data.PhotoUrl)
+            .then(result => {
+                const loggedUser = result.user
+                updateUserProfile(data.name, data.PhotoUrl)
+                    .then(() => {
+                        const savedUser = { email: data.email, name: data.name }
+                        fetch('http://localhost:4444/students', {
                             method: 'POST',
-                            headers:{
-                                'content-type' : 'application/json'
+                            headers: {
+                                'content-type': 'application/json'
                             },
-                            body: JSON.stringify(userData)
+                            body: JSON.stringify(savedUser)
                         })
-                        .then(res=>res.json())
-                        .then(data=>{
-                            console.log(data)
-                            if(data.acknowledged){
-                                alert('user register')
-                                navigate('/login')
-                            }
-                        })
-                    }
-                 
-                })
-                .catch(error => console.log(error))
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset()
+                                    logOut()
+                                        .then(() => {
+                                            navigate('/login')
+                                        })
+                                }
+                            })
+                            .catch(error => console.log(error))
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    });
+            })
         }
-        else{
-            alert('password did not match')
-        }      
-    }; 
- 
-
-// Asdfgh1#
+    };
+    
+    
+    // Asdfgh1#
     return (
         <div>
             <Helmet>

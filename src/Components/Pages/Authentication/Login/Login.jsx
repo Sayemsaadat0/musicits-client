@@ -24,7 +24,7 @@ const Login = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        signInUser(data.email, data.password)
+        signInUser(data.email, data.Password)
             .then(result => {
                 const logedUser = result.user
                 console.log(logedUser)
@@ -65,7 +65,7 @@ const Login = () => {
                                             value={password}
                                             onChange={handlePasswordChange}
                                             className="rounded-3xl w-full border-none bg-red-500 px-6 py-2 placeholder-white text-center shadow-lg"
-                                            name="name"
+                                            name="Password"
                                             placeholder="Your Password" />
                                         <span
                                             onClick={handlePasswordToggle} className="btn btn-ghost absolute right-16 rounded-3xl">

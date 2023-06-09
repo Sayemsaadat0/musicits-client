@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { Fade } from 'react-reveal';
 import { Helmet } from 'react-helmet-async';
 import { BsTrash } from 'react-icons/bs'
+import Swal from 'sweetalert2';
+
+// import useAuth from '../../../../Hooks/useAuth';
 
 
 const SelectedClass = () => {
+
+    const [items, setItems] = useState([])
+    useEffect(()=>{
+        fetch('http://localhost:4444/selectedclass')
+        .then(res=>res.json())
+        .then(data=> {
+            setItems(data);
+        })
+    },[])
+
+    const handleDelete = (item) =>{
+        fetch(`http://localhost:4444/selectedclass/${item._id}`,{
+            method : 'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.acknowledged){
+                Swal.fire(
+                    'success',
+                    'deleted succesfully' 
+                )
+            }
+        })
+
+    }
+   
     return (
         <div className='w-full p-5 h-screen  '>
             <Helmet>
@@ -30,23 +59,18 @@ const SelectedClass = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* row 1 */}
-                            <tr>
+                         {
+                            items.map(item => <tr key={item._id}>
                                 <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
+                                <td>{item.class_name}</td>
+                                <td>{item.instractor_name}</td>
+                                <td>{item.price} <br /> 
+                                Available Seats : {item.available_seat}
+                                 </td>
                                 <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
-                                <td><button className="delete"><BsTrash></BsTrash> </button></td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                                <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
-                                <td><button className="delete"><BsTrash></BsTrash> </button></td>
-                            </tr>
+                                <td><button onClick={()=>handleDelete(item)} className="delete"><BsTrash></BsTrash> </button></td>
+                            </tr>)
+                         }
                          
                         </tbody>
                     </table>

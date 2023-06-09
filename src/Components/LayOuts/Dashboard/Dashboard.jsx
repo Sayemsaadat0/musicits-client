@@ -17,17 +17,17 @@ const Dashboard = ({ role }) => {
                         <div className='flex flex-col'>
                             {/* studet */}
 
-                       {/*   <Link
+                        <Link
                             to='/dashboard/dashboardhome' className='button mb-5'>Student Home</Link>
                              <Link
                             to='/dashboard/selectedclass' className='button mb-5'>Selected classes</Link>
                         <Link
                             className='button mb-5' to='/dashboard/enrolledclass'>Enrolled classes</Link>
                         <Link
-                            className='button' to='/dashboard/paymenthistory'>payment history</Link>  
+                            className='button mb-5' to='/dashboard/paymenthistory'>payment history</Link>  
 
 
- */}
+ 
 
                             {/* admin */}
                             {/*  {
@@ -53,12 +53,12 @@ const Dashboard = ({ role }) => {
                            role === 'isInstractor' && <> 
                            </>  } {/* todo my class implement */}
                            
-                          {/*    <Link
+                             <Link
                             to='/dashboard/dashboardhome' className='button mb-5'>Instractor Home</Link> 
                             <Link
                             to='/dashboard/addclass' className='button mb-5'>Add Classes</Link>
                         <Link
-                            className='button mb-5' to=''>My Classes</Link>  */}
+                            className='button mb-5' to='/dashboard/myclasses'>My Classes</Link> 
                         </div>
                         <div className='divider'></div>
                         <div className='flex flex-col mb-5'>

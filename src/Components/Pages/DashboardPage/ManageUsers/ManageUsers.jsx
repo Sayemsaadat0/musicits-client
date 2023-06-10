@@ -145,7 +145,6 @@ const ManageUsers = () => {
           </h3>
           <div className='overflow-x-auto'>
             <table className='table'>
-              {/* head */}
               <thead>
                 <tr>
                   <th>#</th>
@@ -163,7 +162,7 @@ const ManageUsers = () => {
                       <h4 className='font-bold'>{user.name}</h4> <br />
                     </td>
                     <td>{user.email}</td>
-                    {/* <td>{user.role}</td> */}
+                 
                     <td>
                       {user.role === 'student' ? (
                         <td>Student</td>
@@ -183,7 +182,10 @@ const ManageUsers = () => {
                         Make Admin
                       </button>
                       <br />
-                      <button onClick={()=>makeInstructor(user)} className='button mt-2'>Make Instructor</button>
+                      <button
+                        disabled={isUserDisabled(user._id)}
+                       onClick={()=>makeInstructor(user)}
+                        className='button mt-2'>Make Instructor</button>
                     </td>
                   </tr>
                 ))}

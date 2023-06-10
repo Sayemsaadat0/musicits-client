@@ -18,21 +18,29 @@ const Classes = () => {
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
+
     const handleSelect = (item) => {
+        const addedItem = {
+            _id : item._id,
+            price:item.price,
+            available_seat : item.available_seat,
+             class_name:item.class_name,
+             instractor_name:item.instractor_name ,
+             picture:item.picture,
+             email : user.email}
         if(user) {
             fetch('http://localhost:4444/selectedclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
                 },
-                body: JSON.stringify(item)
+                body: JSON.stringify(addedItem)
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
                         Swal.fire(
-                            'Class selected!',
-                            'success'
+                            'Class selected!'
                         );
                     }
                 })
@@ -40,7 +48,8 @@ const Classes = () => {
                     console.error('Error selecting class:', error);
 
                 });
-        } else {
+        } 
+        else {
             Swal.fire({
                 icon: 'error',
                 title: 'You have to login first to select a class'

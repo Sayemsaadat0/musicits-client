@@ -5,33 +5,38 @@ import { Fade } from 'react-reveal';
 import { Helmet } from 'react-helmet-async';
 import { BsTrash } from 'react-icons/bs'
 import Swal from 'sweetalert2';
+import useSelectedClass from '../../../../Hooks/useSelecClass';
 
 // import useAuth from '../../../../Hooks/useAuth';
 
 
 const SelectedClass = () => {
 
-    const [items, setItems] = useState([])
+/*     const [items, setItems] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:4444/selectedclass')
+        fetch(`http://localhost:4444/selectedclass/${items.email}`)
         .then(res=>res.json())
         .then(data=> {
             setItems(data);
         })
-    },[])
+    },[]) */
+
+    const [selectedclass, refetch] = useSelectedClass()
 
     const handleDelete = (item) =>{
+        console.log('clicked')
         fetch(`http://localhost:4444/selectedclass/${item._id}`,{
             method : 'DELETE'
         })
         .then(res=>res.json())
         .then(data=>{
-            if(data.acknowledged){
+            if(data.deletedCount > 0){
                 Swal.fire(
                     'success',
                     'deleted succesfully' 
                 )
             }
+            refetch()
         })
 
     }
@@ -60,8 +65,8 @@ const SelectedClass = () => {
                         </thead>
                         <tbody>
                          {
-                            items.map(item => <tr key={item._id}>
-                                <th>1</th>
+                            selectedclass.map((item, index) => <tr key={item._id}>
+                                <th>{++ index}</th>
                                 <td>{item.class_name}</td>
                                 <td>{item.instractor_name}</td>
                                 <td>{item.price} <br /> 

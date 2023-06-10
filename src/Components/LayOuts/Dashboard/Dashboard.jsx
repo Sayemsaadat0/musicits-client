@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -56,8 +56,6 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-
- 
 
 /* 
 import React from 'react';
@@ -118,7 +116,7 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard; */
+export default Dashboard;  */
 
 
 /* import React from 'react';

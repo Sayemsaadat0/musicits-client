@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Cover from '../Shared/Cover/Cover';
 import { Helmet } from 'react-helmet-async';
@@ -13,25 +12,14 @@ const Classes = () => {
     // const [isButtonDisabled, setButtonDisabled] = useState(false); 
     const navigate = useNavigate();
 
+
     useEffect(() => {
         fetch('http://localhost:4444/classes')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
-
-
-
     const handleSelect = (item) => {
         if(user) {
-          /*   const classData = {
-                price : item.price, 
-                picture : item.picture ,
-                available_seat : item.available_seat ,
-                class_name : item.class_name ,
-                instractor_name : item.instractor_name , 
-                disabled : true 
-            }  */
-
             fetch('http://localhost:4444/selectedclass', {
                 method: 'POST',
                 headers: {
@@ -60,7 +48,6 @@ const Classes = () => {
             navigate('/login');
         }
     };
-
     return (
         <div>
             <Helmet>

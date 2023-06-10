@@ -3,10 +3,18 @@ import { Fade } from 'react-reveal';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
+import useAuth from '../../../../Hooks/useAuth';
 
 const AddClass = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const {user} = useAuth()
+    const { register, handleSubmit,  formState: { errors } } = useForm();
+   
+    const onSubmit = data => {
+       
+        console.log(data)
+    };
+
+
     console.log(errors);
     return (
         <div className='h-screen mt-10' >
@@ -16,37 +24,57 @@ const AddClass = () => {
             <Fade left>
 
                 <SectionTitle title1={'Add a'} title2={'Class'}></SectionTitle>
-                <div className=' '>
+                <div >
+
+
                     <form className='w-96'
                     onSubmit={handleSubmit(onSubmit)}>
-                     <div className='mx-auto'>
-                     <div className="">
+                     <div>
                             <label className="label">
-                            Class name</label>
-                           
-                            <input type="text" placeholder="Enter Your Class Name here" className="input input-bordered input-error w-full" 
-                            {...register("ClassName", { required: true })}/>
+                            Class Title</label>
+                            <input 
+                            {...register("classTitle", { required: true })}
+                            type="text" 
+                            name='classTitle'
+                            placeholder="Enter Your Class Name here" 
+                            className="input input-bordered input-error w-full" 
+                         />
                         </div>
 
                         <div className=" w-full ">
                             <label className="label">
                             Class Cover Image</label>
-                            <input type="text" placeholder="Iamge URL " className="input input-bordered input-error w-full " 
-                            {...register("classImage", { required: true })}/>
+                            <input 
+                            {...register("classImage", { required: true })}
+                            type="text" 
+                            placeholder="classImage"
+                            name='classImage' 
+                            className="input input-bordered input-error w-full " 
+                         />
                         </div>
 
                         <div className=" w-full ">
                             <label className="label">
                       Instractor Name</label>
-                            <input type="text" placeholder="name " className="input input-bordered input-error w-full " 
-                            {...register("name", { required: true })} disabled/>
+                            <input 
+                            {...register("name")}
+                            type="text" 
+                            placeholder={user.displayName}
+                            name='name'
+                            className="input input-bordered input-error w-full " 
+                            disabled/>
                         </div>
 
                         <div className=" w-full ">
                             <label className="label">
                       Instractor Email</label>
-                            <input type="email" placeholder="Email " className="input input-bordered input-error w-full " 
-                            {...register("email", { required: true })} disabled/>
+                            <input
+                             {...register("email")}
+                             type="email"
+                            name='email'
+                             placeholder={user.email}
+                             className="input input-bordered input-error w-full " 
+                            disabled/>
                         </div>
 
                       
@@ -54,17 +82,19 @@ const AddClass = () => {
                         <div className=" w-full ">
                             <label className="label">
                             Available seats</label>
-                            <input type="number" placeholder="Available seats" className="input input-bordered input-error w-full " 
-                            {...register("availableSeats", { required: true })}/>
+                            <input
+                             {...register("availableSeats", { required: true })} type="number" name='availableSeats' placeholder="Available seats" className="input input-bordered input-error w-full " />
                         </div>
 
                         <div className=" w-full ">
                             <label className="label">
                             Price</label>
-                            <input type="number" placeholder="Price" className="input input-bordered input-error w-full " 
-                            {...register("price", { required: true })}/>
+                            <input
+                             {...register("price", { required: true })} type="number" 
+                            name='price'
+                            placeholder="Price" className="input input-bordered input-error w-full " />
                         </div>
-                     </div>
+                  
 
                         
 

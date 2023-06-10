@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {  GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile  } from "firebase/auth";
 import MusicitsApp from '../../../Firebase/Firebase.config';
+import axios from 'axios';
 
 
 
@@ -48,7 +49,19 @@ const updateUserProfile = (name, photo) =>{
 useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
         setUser(currentUser)
-        setLoading(false)
+        if(currentUser){
+            axios.post('http://localhost:4444/jwt',{
+                email: currentUser.email
+            })
+            .then(data=>{
+                localStorage.setItem('access-token', data.data.token)
+                setLoading(false)
+            })
+        }
+        else{
+            localStorage.removeItem('access-token')
+        }
+      
     })
     return unSubscribe
 }, [])

@@ -17,6 +17,7 @@ import ManageUsers from "../Pages/DashboardPage/ManageUsers/ManageUsers";
 import DashboardHome from "../Pages/DashboardPage/DashboardHome/DashboardHome";
 import AdminHome from "../Pages/DashboardPage/AdminHome/AdminHome";
 import MyClasses from "../Pages/DashboardPage/MyClasses/MyClasses";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children :[
       {
         path : 'adminhome',

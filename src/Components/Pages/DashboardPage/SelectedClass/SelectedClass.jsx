@@ -7,40 +7,44 @@ import { BsTrash } from 'react-icons/bs'
 import Swal from 'sweetalert2';
 import useSelectedClass from '../../../../Hooks/useSelecClass';
 
-// import useAuth from '../../../../Hooks/useAuth';
-
-
 const SelectedClass = () => {
 
-/*     const [items, setItems] = useState([])
-    useEffect(()=>{
-        fetch(`http://localhost:4444/selectedclass/${items.email}`)
-        .then(res=>res.json())
-        .then(data=> {
-            setItems(data);
-        })
-    },[]) */
+
 
     const [selectedclass, refetch] = useSelectedClass()
 
-    const handleDelete = (item) =>{
-        console.log('clicked')
-        fetch(`http://localhost:4444/selectedclass/${item._id}`,{
-            method : 'DELETE'
+    const handleDelete = item => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.deletedCount > 0){
-                Swal.fire(
-                    'success',
-                    'deleted succesfully' 
-                )
+        .then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:4444/selectedclass/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
             }
-            refetch()
         })
-
     }
-   
+
+
+
     return (
         <div className='w-full p-5 h-screen  '>
             <Helmet>
@@ -64,19 +68,19 @@ const SelectedClass = () => {
                             </tr>
                         </thead>
                         <tbody>
-                         {
-                            selectedclass.map((item, index) => <tr key={item._id}>
-                                <th>{++ index}</th>
-                                <td>{item.class_name}</td>
-                                <td>{item.instractor_name}</td>
-                                <td>{item.price} <br /> 
-                                Available Seats : {item.available_seat}
-                                 </td>
-                                <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
-                                <td><button onClick={()=>handleDelete(item)} className="delete"><BsTrash></BsTrash> </button></td>
-                            </tr>)
-                         }
-                         
+                            {
+                                selectedclass.map((item, index) => <tr key={item._id}>
+                                    <th>{++index}</th>
+                                    <td>{item.class_name}</td>
+                                    <td>{item.instractor_name}</td>
+                                    <td>Price : <span className='text-xl font-semibold text-red-400'>{item.price}</span> <br />
+                                        Available Seats : {item.available_seat}
+                                    </td>
+                                    <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
+                                    <td><button onClick={() => handleDelete(item)} className="delete"><BsTrash></BsTrash> </button></td>
+                                </tr>)
+                            }
+
                         </tbody>
                     </table>
                 </div>
@@ -88,3 +92,17 @@ const SelectedClass = () => {
 export default SelectedClass;
 
 
+
+
+
+
+
+
+/*     const [items, setItems] = useState([])
+    useEffect(()=>{
+        fetch(`http://localhost:4444/selectedclass/${items.email}`)
+        .then(res=>res.json())
+        .then(data=> {
+            setItems(data);
+        })
+    },[]) */

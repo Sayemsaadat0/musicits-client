@@ -6,6 +6,7 @@ import AdminTable from './AdminTable';
 import { Helmet } from 'react-helmet-async';
 
 const AdminHome = () => {
+   
     return (
         <div className='w-full h-screen'>
             <Helmet>

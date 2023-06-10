@@ -28,9 +28,8 @@ const SocialLogin = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        if (data.insertedId) {
-                            navigate('/');
-                        }
+                       navigate('/');
+                       
                     })
                     .catch(error => console.log(error));
             })

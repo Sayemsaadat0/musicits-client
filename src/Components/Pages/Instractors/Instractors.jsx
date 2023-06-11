@@ -10,7 +10,10 @@ const Instractors = () => {
 useEffect(() => {
     fetch('http://localhost:4444/instractor')
         .then(res => res.json())
-        .then(data => setitems(data))
+        .then(data => {
+            console.log('data is not coming' );
+            setitems(data)
+        })
 }, []);
     return (
         <div>

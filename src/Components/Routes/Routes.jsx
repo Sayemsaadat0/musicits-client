@@ -60,6 +60,14 @@ const router = createBrowserRouter([
         element : <AdminHome></AdminHome>
       },
       {
+        path : 'manageclass',
+        element : <Manageclass></Manageclass>
+      },
+      {
+        path : 'manageusers',
+        element : <ManageUsers></ManageUsers>
+      },
+      {
         path : 'dashboardhome',
         element : <DashboardHome></DashboardHome>
       },
@@ -87,14 +95,7 @@ const router = createBrowserRouter([
         path : 'myclasses',
         element : <MyClasses></MyClasses>
       },
-      {
-        path : 'manageclass',
-        element : <Manageclass></Manageclass>
-      },
-      {
-        path : 'manageusers',
-        element : <ManageUsers></ManageUsers>
-      },
+     
     ]
   },
 ]);

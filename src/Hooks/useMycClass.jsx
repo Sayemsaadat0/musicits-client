@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import useAuth from './useAuth'
+// import useAxios from './useAxios'
 
 
 const useMyClass = () =>{
 const {user , loading} = useAuth()
 const token = localStorage.getItem('access-token')
+// const [axiosSecure] = useAxios
 
 const {  data: MyClass=[],refetch } = useQuery({
     queryKey: ['MyClass', user?.email],

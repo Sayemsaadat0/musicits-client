@@ -11,7 +11,7 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side glass">
+                <div className="drawer-side ">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu mt-1 p-4 w-80 h-full text-base-content">
                         <div className='flex flex-col'>

@@ -79,7 +79,7 @@ const Manageclass = () => {
                                             <img
                                                 width={100}
                                                 className=''
-                                                src={picture}
+                                                src={item.picture}
                                                 alt=" sss"
                                             />
                                             <br />

@@ -11,7 +11,7 @@ const SelectedClass = () => {
 
 
 
-    const [selectedclass, refetch] = useSelectedClass()
+    const [selectedclass, refetch] = useSelectedClass([])
 
     const handleDelete = item => {
         Swal.fire({

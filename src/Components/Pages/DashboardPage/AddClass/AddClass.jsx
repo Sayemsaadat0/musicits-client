@@ -12,16 +12,12 @@ const AddClass = () => {
     const [addClassError, setAddClassError] = useState(null);
 
     const handleAddClass = (data) => {
-        const userData = {
-            classTitle: data.classTitle,
-            classImage: data.classImage,
-            name: data.name,
-            email: data.email,
-            availableSeats: data.availableSeats,
-            price: data.price,
-            status: 'pending'
-        };
-        if (user) {
+        const userData = { classTitle: data.classTitle, picture: data.picture,
+             name: data.name,email: data.email, available_seat: data.available_seat,
+            price: data.price,status: 'pending'
+        }; 
+        console.log(userData);
+       if (user) {
             fetch('http://localhost:4444/manageclass', {
                 method: 'POST',
                 headers: {
@@ -43,11 +39,11 @@ const AddClass = () => {
         } else {
             alert('You have to login first to add a class');
             navigate('/login');
-        }
+        } 
     };
 
     const onSubmit = (data) => {
-        handleAddClass(data);
+        console.log(data);
     };
 
     return (
@@ -60,8 +56,7 @@ const AddClass = () => {
                 <div>
                     <form
                         className='w-96'
-                        onSubmit={handleSubmit(onSubmit)}
-                    >
+                        onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label className="label">
                                 Class Title
@@ -79,9 +74,9 @@ const AddClass = () => {
                                 Class Cover Image
                             </label>
                             <input
-                                {...register("classImage", { required: true })}
+                                {...register("picture", { required: true })}
                                 type="text"
-                                placeholder="classImage"
+                                placeholder="picture"
                                 className="input input-bordered input-error w-full "
                             />
                         </div>
@@ -119,9 +114,9 @@ const AddClass = () => {
                                 Available seats
                             </label>
                             <input
-                                {...register("availableSeats", { required: true })}
+                                {...register("available_seat", { required: true })}
                                 type="number"
-                                name='availableSeats'
+                                name='available_seat'
                                 placeholder="Available seats"
                                 className="input input-bordered input-error w-full"
                             />

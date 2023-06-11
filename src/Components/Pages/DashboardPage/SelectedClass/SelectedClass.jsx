@@ -71,7 +71,7 @@ const SelectedClass = () => {
                             {
                                 selectedclass.map((item, index) => <tr key={item._id}>
                                     <th>{++index}</th>
-                                    <td>{item.class_name}</td>
+                                    <td>{item.classtitle}</td>
                                     <td>{item.instractor_name}</td>
                                     <td>Price : <span className='text-xl font-semibold text-red-400'>{item.price}</span> <br />
                                         Available Seats : {item.available_seat}

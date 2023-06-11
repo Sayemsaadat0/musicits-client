@@ -36,7 +36,7 @@ const MyClasses = () => {
                                         <tr key={item._id}>
                                             <th>{++index}</th>
                                             <td>
-                                                <img className='w-28' style={{borderRadius: '20px 0 20px 0'}} src={item.classImage} alt="" /> <br />
+                                                <img className='w-28' style={{borderRadius: '20px 0 20px 0'}} src={item.picture} alt="" /> <br />
                                                 <p className='font-bold'>{item.classTitle}</p></td>
 
                                             <td>

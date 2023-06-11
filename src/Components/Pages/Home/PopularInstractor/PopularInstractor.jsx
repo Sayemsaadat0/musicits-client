@@ -4,9 +4,6 @@ import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import Slide from 'react-reveal/Slide'
 import LazyLoad from 'react-lazy-load';
 
-
-
-
 const PopularInstractor = () => {
     const [teachers, setTeachers] = useState([]);
 
@@ -15,7 +12,6 @@ const PopularInstractor = () => {
             .then(res => res.json())
             .then(data => setTeachers(data))
     }, []);
-    // todo  prottek teacher er nam
     return (
         <div>
 

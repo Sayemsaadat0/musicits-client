@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 const Classes = () => {
     const { user } = useAuth();
     const [items, setItems] = useState([]);
-    // const [isButtonDisabled, setButtonDisabled] = useState(false); 
     const navigate = useNavigate();
 
 
@@ -19,15 +18,17 @@ const Classes = () => {
             .then(data => setItems(data));
     }, []);
 
+
+    // problem- failed to fetch 
     const handleSelect = (item) => {
         const addedItem = {
             _id : item._id,
             price:item.price,
             available_seat : item.available_seat,
-             class_name:item.class_name,
+            classTitle:item.classTitle,
              instractor_name:item.instractor_name ,
              picture:item.picture,
-             email : user.email}
+             email : user.email} 
         if(user) {
             fetch('http://localhost:4444/selectedclass', {
                 method: 'POST',
@@ -46,7 +47,6 @@ const Classes = () => {
                 })
                 .catch(error => {
                     console.error('Error selecting class:', error);
-
                 });
         } 
         else {
@@ -76,7 +76,7 @@ const Classes = () => {
                             </figure>
                         </LazyLoad>
                         <div className="card-body">
-                            <h2 className="card-title">{item.class_name}</h2>
+                            <h2 className="card-title">{item.classtitle}</h2>
                             <p className='font-semibold'>{item.instructor_name}</p>
                             <p>Available Seats: {item.available_seat}</p>
                             <p>Price: <span className='text-red-500'>{item.price}</span></p>

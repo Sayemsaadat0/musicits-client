@@ -23,8 +23,9 @@ const EnrolledClass = () => {
                                 <Link className='button'>Start tutorials</Link>
                             </div>
                         </div>
-                    </div>
-                    {/*  */}
+                    </div> 
+
+                    {/* todo this section is not done */}
                     <div className="card  bg-base-100 shadow-xl">
                         <figure><img src="https://i.pinimg.com/564x/a2/ca/dd/a2cadd6b028645ea7f8b39380abdea92.jpg" alt="Shoes" /></figure>
                         <div className="card-body">

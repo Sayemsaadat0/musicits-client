@@ -269,7 +269,7 @@ const ManageUsers = () => {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name &amp; Job</th>
+                  <th>Name </th>
                   <th>email</th>
                   <th>role</th>
                   <th>Action</th>

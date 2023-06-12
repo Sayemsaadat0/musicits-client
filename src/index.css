@@ -19,48 +19,29 @@
 
 /* normal button */
 .button {
-    font-size: 18px;
-    letter-spacing: 2px;
-    display: inline-block;
-    text-align: center;
-    padding: 4px 3px;
-    border: 1px solid red;
-    border-radius: 2px;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-    color: red;
-    text-decoration: none;
-    transition: 0.3s ease all;
-    z-index: 1;
-  }
-  
-  .button:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
-    background-color: red;
-    z-index: -1;
-  }
-  
-  .button:hover, button:focus {
-    color: white;
-  }
-  
-  .button:hover:before, button:focus:before {
-    transition: 0.5s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-  }
-  
-  .button:active {
-    transform: scale(0.9);
-  }
+  padding: 10px;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  /* transition: 0.6s; */
+  box-shadow: 0px 0px 60px #e1e7ea;
+  /* -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
+}
+
+.button:active {
+  scale: 0.92;
+}
+
+.button:hover {
+  background: linear-gradient(270deg, rgba(153, 64, 64, 0.681) 0%, rgba(232, 31, 75, 0.873) 20%);
+  color: rgb(4, 4, 38);
+}
   /* delete button */
   .delete {
     position: relative;

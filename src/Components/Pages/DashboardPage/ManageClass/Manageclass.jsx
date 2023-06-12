@@ -2,18 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { Fade } from 'react-reveal';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { Helmet } from 'react-helmet-async';
+// import { useQuery } from '@tanstack/react-query'; 
+import Swal from 'sweetalert2'
 
 const Manageclass = () => {
     const [items, setItems] = useState([]);
-
+ 
     useEffect(() => {
-        fetch('http://localhost:4444/manageclass')
+        fetch('    https://musicits-server.vercel.app/manageclass')
             .then(res => res.json())
             .then(data => setItems(data));
-    }, []);
+    }, []);  
 
+    /*  const { data: manageclass = [], refetch } = useQuery(['manageclass'], async () => {
+        const res = await fetch('    https://musicits-server.vercel.app/manageclass');
+        return res.data;
+      }); 
+ */
 
     const handleApprove = (item) =>{
+        console.log(item);
         const updateItem = {
             id : item._id,
             classTitle : item.classTitle ,
@@ -23,7 +31,7 @@ const Manageclass = () => {
             available_seat : item.available_seat,
             price: item.price,
             statu: item.status}
-            fetch('http://localhost:4444/updatedClass', {
+            fetch('    https://musicits-server.vercel.app/updatedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -32,19 +40,20 @@ const Manageclass = () => {
             })
         .then(res => res.json())
         .then(data => {
-                alert('sjjss')
-                console.log(data);
+            Swal.fire('Class Aprroved')
+            console.log(data);
             });
     }
     // todo handle deny a  click korle 
     const handleDeny = (id) => {
-        fetch(`http://localhost:4444/manageclass/${id}`, {
+        fetch(`    https://musicits-server.vercel.app/manageclass/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
             .then(data => {
                 if(data.acknowledged){
-                    data.satatus === 'Approved'
+                    data.satatus === 'denied' 
+                    Swal.fire('Class Denied')
                 };
             });
     };

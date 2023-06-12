@@ -13,46 +13,47 @@ const AddClass = () => {
     const [data, setData] = useState([]);
 
 
-    const handleAddClass = (data) => { 
-        console.log(data);
-        const userData = {
-            classTitle: data.classTitle,
-            picture: data.picture,
-            instractor_name: data.instractor_name,
-            email: data.email,
-            available_seat: data.available_seat,
-            price: data.price,
-            status: 'pending'
-        };
-        console.log(userData);
-        if (user) {
-            fetch('http://localhost:4444/manageclass', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(userData)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.insertedId) {
-                        reset()
-                        Swal.fire('Class is pending please wait for Admin Approval');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error adding class:', error);
-                    setAddClassError('An error occurred while adding the class.');
-                });
-        } else {
-            alert('You have to login first to add a class');
-            navigate('/login');
-        }
+    const onSubmit = (data) => {
+        handleAddClass(data)
     };
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const handleAddClass = (data) => {
+        const userData = {
+            available_seat:data.available_seat,
+            classTitle:data.classTitle,
+            email:data.email,
+            instractor_name:data.instractor_name,
+            picture:data.picture ,
+            price:data.price  ,
+            status: 'pending'
+        };
+        console.log(userData.available_seat);
+       if (user) {
+             fetch('    https://musicits-server.vercel.app/manageclass', {
+                 method: 'POST',
+                 headers: {
+                     'content-type': 'application/json',
+                 },
+                 body: JSON.stringify(userData)
+             })
+                 .then(res => res.json())
+                 .then(data => {
+                     console.log(data);
+                     if (data.insertedId) {
+                         Swal.fire('Class is pending please wait for Admin Approval');
+                     }
+                 })
+                 .catch(error => {
+                     console.error('Error adding class:', error);
+                     setAddClassError('An error occurred while adding the class.');
+                 });
+         } else {
+             alert('You have to login first to add a class');
+             navigate('/login');
+         } 
     };
+
+
 
     return (
         <div className='h-screen mt-10'>
@@ -124,7 +125,6 @@ const AddClass = () => {
                             <input
                                 {...register("available_seat", { required: true })}
                                 type="number"
-                                name='available_seat'
                                 placeholder="Available seats"
                                 className="input input-bordered input-error w-full"
                             />
@@ -145,8 +145,7 @@ const AddClass = () => {
                         {addClassError && <p className="text-red-600">{addClassError}</p>}
 
                         <button
-                            onClick={() => handleAddClass(data)}
-                            className='btn button mt-5 border-red-500 mx-auto'
+                            className='btn  mt-5 border-red-500 mx-auto'
                             type="submit">
                             Add Class
                         </button>

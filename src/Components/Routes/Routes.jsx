@@ -78,8 +78,7 @@ const router = createBrowserRouter([
       {
         path : 'pay/:id', 
         element : <Pay></Pay> ,
-        loader : ({params})=> fetch(`http://localhost:4444/pay/${params.id}`)
-        
+        loader : ({params})=> fetch(`    https://musicits-server.vercel.app/pay/${params.id}`)
       },
       {
         path : 'enrolledclass',

@@ -5,23 +5,26 @@ import { useEffect } from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 
 
-const CheckOutForm = ({paydata}) => {
+const CheckOutForm = ({payData}) => {
     const {user} = useAuth()
     const stripe = useStripe()
     const elements = useElements()
     const [cardError, setCardError] = useState()
     const [axiosSecure] = useAxios()
     const [clientSecret, setClientSecret] = useState('')
-
-
+    
+    https://musicits-server.vercel.app/
+    
     useEffect(()=>{
-        console.log(paydata);
-        axiosSecure.post('/create-payment-intent', {paydata})
-        .then(res=>{
-            console.log(res.data.clientSecret)
-            setClientSecret(res.data.clientSecret)
-        })
-    },[])
+        console.log(payData);
+        if(payData?.price > 0){
+            axiosSecure.post('/create-payment-intent', {price: payData?.price})
+            .then(res=>{
+                console.log(res.data.clientSecret)
+                setClientSecret(res.data.clientSecret)
+            })
+        }
+    },[payData?.price])
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (!stripe || !elements) {

@@ -13,7 +13,8 @@ const DashboardHome = () => {
             </Helmet>
             <p className=' font-bold mb-10'>Hey Mr. <span className='text-red-500 text-3xl'>{user.displayName}</span></p>
             <LazyLoad threshold={0.95}>
-            <img src="https://i.ibb.co/YZ4mmq0/musicits.gif" alt="" />
+            {/* <img src="https://i.ibb.co/YZ4mmq0/musicits.gif" alt="" /> */}
+            <img src="https://i.ibb.co/9Gp6S68/loading.gif" alt="" />
             </LazyLoad>
         </div>
     );

@@ -1,5 +1,5 @@
  import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -8,7 +8,7 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="button button-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
                 <div className="drawer-side ">
@@ -16,36 +16,36 @@ const Dashboard = () => {
                     <ul className="menu mt-1 p-4 w-80 h-full text-base-content">
                         <div className='flex flex-col'>
 
-                        <Link
-                            to='/dashboard/dashboardhome' className='button mb-5'>Student Home</Link>
-                             <Link
-                            to='/dashboard/selectedclass' className='button mb-5'>Selected classes</Link>
-                        <Link
-                            className='button mb-5' to='/dashboard/enrolledclass'>Enrolled classes</Link>
-                        <Link
-                            className='button mb-5' to='/dashboard/paymenthistory'>payment history</Link>  
+                        <NavLink
+                            to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
+                             <NavLink
+                            to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
+                        <NavLink
+                            className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
+                        <NavLink
+                            className='button mb-2' to='/dashboard/paymenthistory'>payment history</NavLink>  
 
 
-                          <Link
-                                to='/dashboard/adminhome' className='button mb-5'>Admin Home</Link>
+                          <NavLink
+                                to='/dashboard/adminhome' className='button mb-2'>Admin Home</NavLink>
 
-                            <Link
-                                to='/dashboard/manageclass' className='button mb-5'>Manage classes</Link>
-                            <Link
-                                className='button mb-5' to='/dashboard/manageusers'>manage users</Link> 
+                            <NavLink
+                                to='/dashboard/manageclass' className='button mb-2'>Manage classes</NavLink>
+                            <NavLink
+                                className='button mb-2' to='/dashboard/manageusers'>manage users</NavLink> 
                   
 
-                             <Link
-                            to='/dashboard/dashboardhome' className='button mb-5'>Instractor Home</Link> 
-                            <Link
-                            to='/dashboard/addclass' className='button mb-5'>Add Classes</Link>
-                        <Link
-                            className='button mb-5' to='/dashboard/myclasses'>My Classes</Link> 
+                             <NavLink
+                            to='/dashboard/dashboardhome' className='button mb-2'>Instractor Home</NavLink> 
+                            <NavLink
+                            to='/dashboard/addclass' className='button mb-2'>Add Classes</NavLink>
+                        <NavLink
+                            className='button mb-2' to='/dashboard/myclasses'>My Classes</NavLink> 
                         </div>
                         <div className='divider'></div>
-                        <div className='flex flex-col mb-5'>
-                            <Link className='button mb-5 flex ' to='/'>Home</Link>
-                            <Link className='button' to='/classes'>Classes</Link>
+                        <div className='flex flex-col mb-2'>
+                            <NavLink className='button mb-2 ' to='/'>Home</NavLink>
+                            <NavLink className='button' to='/classes'>Classes</NavLink>
                         </div>
                     </ul>
                 </div>
@@ -59,7 +59,7 @@ export default Dashboard;
 
 
 /* import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import useAdmin from '../../../Hooks/useAdmin';
 
@@ -74,7 +74,7 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="button button-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
                 <div className="drawer-side glass">
@@ -84,36 +84,36 @@ const Dashboard = () => {
 
                             {user.role === 'Student' && (
                                 <>
-                                    <Link to='/dashboard/dashboardhome' className='button mb-5'>Student Home</Link>
-                                    <Link to='/dashboard/selectedclass' className='button mb-5'>Selected classes</Link>
-                                    <Link className='button mb-5' to='/dashboard/enrolledclass'>Enrolled classes</Link>
-                                    <Link className='button mb-5' to='/dashboard/paymenthistory'>Payment history</Link>
+                                    <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
+                                    <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
+                                    <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
+                                    <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
                                 </>
                             )}
 
                             {user.role === 'Instructor' && (
                                 <>
-                                    <Link to='/dashboard/instructorhome' className='button mb-5'>Instructor Home</Link>
-                                    <Link to='/dashboard/addclass' className='button mb-5'>Add Class</Link>
-                                    <Link className='button mb-5' to='/dashboard/myclasses'>My Classes</Link>
+                                    <NavLink to='/dashboard/instructorhome' className='button mb-2'>Instructor Home</NavLink>
+                                    <NavLink to='/dashboard/addclass' className='button mb-2'>Add Class</NavLink>
+                                    <NavLink className='button mb-2' to='/dashboard/myclasses'>My Classes</NavLink>
                                 </>
                             )}
 
                             {isAdmin === 'admin' && (
                                 <>
                                     
-                                    <Link to='/dashboard/manageusers' className='button mb-5'>Manage Users</Link>
-                                    <Link className='button mb-5' to='/dashboard/manageclass'>Manage Classes</Link>
+                                    <NavLink to='/dashboard/manageusers' className='button mb-2'>Manage Users</NavLink>
+                                    <NavLink className='button mb-2' to='/dashboard/manageclass'>Manage Classes</NavLink>
                                 </>
                             )}
                             {
-                                isAdmin && <Link to='/dashboard/adminhome' className='button mb-5'>Admin Home</Link>
+                                isAdmin && <NavLink to='/dashboard/adminhome' className='button mb-2'>Admin Home</NavLink>
                             }
                         </div>
                         <div className='divider'></div>
-                        <div className='flex flex-col mb-5'>
-                            <Link className='button mb-5 flex' to='/'>Home</Link>
-                            <Link className='button' to='/classes'>Classes</Link>
+                        <div className='flex flex-col mb-2'>
+                            <NavLink className='button mb-2 flex' to='/'>Home</NavLink>
+                            <NavLink className='button' to='/classes'>Classes</NavLink>
                         </div>
                     </ul>
                 </div>
@@ -126,16 +126,16 @@ export default Dashboard;   */
 
 
 /* import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = ({ role }) => {
     const renderStudentLinks = () => {
         return (
             <>
-                <Link to='/dashboard/dashboardhome' className='button mb-5'>Student Home</Link>
-                <Link to='/dashboard/selectedclass' className='button mb-5'>Selected classes</Link>
-                <Link className='button mb-5' to='/dashboard/enrolledclass'>Enrolled classes</Link>
-                <Link className='button mb-5' to='/dashboard/paymenthistory'>Payment history</Link>
+                <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
+                <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
+                <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
+                <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
             </>
         );
     };
@@ -143,9 +143,9 @@ const Dashboard = ({ role }) => {
     const renderInstructorLinks = () => {
         return (
             <>
-                <Link to='/dashboard/instructorhome' className='button mb-5'>Instructor Home</Link>
-                <Link to='/dashboard/addclass' className='button mb-5'>Add Class</Link>
-                <Link className='button mb-5' to='/dashboard/myclasses'>My Classes</Link>
+                <NavLink to='/dashboard/instructorhome' className='button mb-2'>Instructor Home</NavLink>
+                <NavLink to='/dashboard/addclass' className='button mb-2'>Add Class</NavLink>
+                <NavLink className='button mb-2' to='/dashboard/myclasses'>My Classes</NavLink>
             </>
         );
     };
@@ -153,9 +153,9 @@ const Dashboard = ({ role }) => {
     const renderAdminLinks = () => {
         return (
             <>
-                <Link to='/dashboard/adminhome' className='button mb-5'>Admin Home</Link>
-                <Link to='/dashboard/manageusers' className='button mb-5'>Manage Users</Link>
-                <Link className='button mb-5' to='/dashboard/manageclass'>Manage Classes</Link>
+                <NavLink to='/dashboard/adminhome' className='button mb-2'>Admin Home</NavLink>
+                <NavLink to='/dashboard/manageusers' className='button mb-2'>Manage Users</NavLink>
+                <NavLink className='button mb-2' to='/dashboard/manageclass'>Manage Classes</NavLink>
             </>
         );
     };
@@ -166,7 +166,7 @@ const Dashboard = ({ role }) => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="button button-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
                 <div className="drawer-side glass">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -177,9 +177,9 @@ const Dashboard = ({ role }) => {
                             {role === 'admin' && renderAdminLinks()}
                         </div>
                         <div className='divider'></div>
-                        <div className='flex flex-col mb-5'>
-                            <Link className='button mb-5 flex' to='/'>Home</Link>
-                            <Link className='button' to='/classes'>Classes</Link>
+                        <div className='flex flex-col mb-2'>
+                            <NavLink className='button mb-2 flex' to='/'>Home</NavLink>
+                            <NavLink className='button' to='/classes'>Classes</NavLink>
                         </div>
                     </ul>
                 </div>

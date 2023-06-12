@@ -9,7 +9,8 @@ import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
-    const { signInUser } = useAuth()
+    const { signInUser } = useAuth() 
+    const [error, setError] = useState([])
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || "/"
@@ -30,7 +31,7 @@ const Login = () => {
                 alert('user Signin')
                 navigate('/')
             })
-            .catch(error => console.log(error))
+            .catch(error => setError(error))
     };
 
     return (
@@ -69,7 +70,8 @@ const Login = () => {
                                         <span
                                             onClick={handlePasswordToggle} className="btn btn-ghost absolute right-16 rounded-3xl">
                                             {passwordVisible ? <BsEyeFill></BsEyeFill> : <BsEyeSlashFill></BsEyeSlashFill>}
-                                        </span>
+                                        </span> 
+                                        <p>{error.message}</p>
                                     </div>
                                 </div>
                                 <div className="mt-8 flex justify-center text-lg text-black">

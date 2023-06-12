@@ -12,13 +12,13 @@ const MyClasses = () => {
             <Fade left>
                 <SectionTitle title1={'My'} title2={'Classes'}></SectionTitle>
                 <div>
-                    <h3 className='text-3xl font-bold underline'>Total Users : </h3>
+                    <h3 className='text-3xl font-bold underline'> </h3>
                     <div className="overflow-x-auto">
                         <table className="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Class image  with name</th>
+                                    <th>Class image with name</th>
                                     <th>Seats & Price</th>
                                     <th>FeedBack</th>
                                     <th>Status</th>
@@ -47,7 +47,6 @@ const MyClasses = () => {
                                             </td>
                                         </tr>
                                     ))
-
                                 }
                             </tbody>
                         </table>

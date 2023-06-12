@@ -8,7 +8,7 @@ const PopularInstractor = () => {
     const [teachers, setTeachers] = useState([]);
 
     useEffect(() => {
-        fetch('     https://musicits-server.vercel.app/popularinstractor')
+        fetch('https://musicits-server.vercel.app/popularinstractor')
             .then(res => res.json())
             .then(data => setTeachers(data))
     }, []);

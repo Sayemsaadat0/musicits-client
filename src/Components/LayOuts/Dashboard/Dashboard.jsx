@@ -71,8 +71,6 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin(user.email)
     const [isStudent] = useStudent(user.email)
     const [isInstructor] = useInstractor(user.email)
-    console.log('isInstructor;', isInstructor, 'isStudent', isStudent);
-
     return (
         <div className=''>
             <div className="drawer lg:drawer-open ">

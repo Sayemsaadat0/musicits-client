@@ -8,12 +8,14 @@ import { useState } from "react";
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
+
     const [theme, setTheme] = useState('light');
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(error => console.log(error))
     }
+   
     const toggleTheme = () => {
         if (theme === 'light') {
             setTheme('dark')

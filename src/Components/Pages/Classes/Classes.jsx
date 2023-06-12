@@ -13,7 +13,7 @@ const Classes = () => {
 
 
     useEffect(() => {
-        fetch('     https://musicits-server.vercel.app/classes')
+        fetch('https://musicits-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
@@ -96,7 +96,6 @@ const Classes = () => {
                                             Select
                                         </button>
                                 }
-
                             </div>
                         </div>
                     </div>

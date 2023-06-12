@@ -7,14 +7,14 @@ import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await fetch('     https://musicits-server.vercel.app/users');
+    const res = await fetch(' https://musicits-server.vercel.app/users');
     return res.json();
   });
 
   const [disabledUsers, setDisabledUsers] = useState([]);
 
   const makeAdmin = (user) => {
-    fetch(`     https://musicits-server.vercel.app/users/admin/${user._id}`, {
+    fetch(`https://musicits-server.vercel.app/users/admin/${user._id}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())
@@ -32,7 +32,7 @@ const ManageUsers = () => {
 
   const makeInstructor = (user) => {
     console.log(user);
-    fetch(`     https://musicits-server.vercel.app/users/instructor/${user._id}`, {
+    fetch(`https://musicits-server.vercel.app/users/instructor/${user._id}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())

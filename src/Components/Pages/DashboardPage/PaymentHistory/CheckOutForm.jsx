@@ -9,14 +9,16 @@ const CheckOutForm = ({payData}) => {
     const {user} = useAuth()
     const stripe = useStripe()
     const elements = useElements()
-    const [cardError, setCardError] = useState()
+    const [cardError, setCardError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [transitionId, setTransitionId] = useState('')
     const [axiosSecure] = useAxios()
     const [clientSecret, setClientSecret] = useState('')
     
 
 
     useEffect(()=>{
-        console.log(payData);
+        console.log(payData?.price);
         if(payData?.price > 0){
             axiosSecure.post('/create-payment-intent', {price: payData?.price})
             .then(res=>{
@@ -48,6 +50,7 @@ const CheckOutForm = ({payData}) => {
             console.log('paument method', paymentMethod)
             setCardError('')
         }
+        setSuccess('')
         const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
         clientSecret,
             {
@@ -62,6 +65,10 @@ const CheckOutForm = ({payData}) => {
           );
           if(confirmError){
             console.log(confirmError);
+          }
+          if(paymentIntent.status === "succeeded"){
+            setSuccess('congrats ! your payment completed')
+            setTransitionId(paymentIntent.id)
           }
 console.log(card);
     }
@@ -88,7 +95,10 @@ console.log(card);
                     Pay
                 </button>
             </form>
-            <p>{cardError && <p>{cardError}</p>}</p>
+            {
+                success && <p>{success}</p>
+            }
+            <p>Your Transition id : <span className='text-green-500'>{transitionId}</span></p>
         </div>
     );
 };

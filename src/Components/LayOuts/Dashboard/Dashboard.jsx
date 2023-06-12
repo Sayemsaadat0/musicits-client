@@ -1,4 +1,4 @@
- import React from 'react';
+/*  import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -56,18 +56,23 @@ const Dashboard = () => {
 
 export default Dashboard;
 
+ */
 
-
-/* import React from 'react';
+import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import useAdmin from '../../../Hooks/useAdmin';
+import useStudent from '../../../Hooks/useStudent';
+import useInstractor from '../../../Hooks/useInstractor';
 
-const Dashboard = () => { 
-    todo do same thing for instractor
-    const {user} = useAuth()  
+const Dashboard = () => {
+    // todo do same thing for instractor
+    const { user } = useAuth()
     const [isAdmin] = useAdmin(user.email)
-    
+    const [isTudent] = useStudent(user.email)
+    const [isInstructor] = useInstractor(user.email)
+    console.log('isInstructor;', isInstructor, 'isTudent', isTudent);
+
     return (
         <div className=''>
             <div className="drawer lg:drawer-open ">
@@ -81,104 +86,48 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu mt-1 p-4 w-80 h-full text-base-content">
                         <div className='flex flex-col'>
+                            {/* for student */}
+                            {
+                                isTudent && <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
+                            }
+                            {
+                                isTudent && <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
+                            }
+                            {
+                                isTudent && <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
+                            }
+                            {
+                                isTudent && <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
+                            }
 
-                            {user.role === 'Student' && (
-                                <>
-                                    <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
-                                    <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
-                                    <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
-                                    <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
-                                </>
-                            )}
+                            {/* for Instractor */}
 
-                            {user.role === 'Instructor' && (
-                                <>
-                                    <NavLink to='/dashboard/instructorhome' className='button mb-2'>Instructor Home</NavLink>
-                                    <NavLink to='/dashboard/addclass' className='button mb-2'>Add Class</NavLink>
-                                    <NavLink className='button mb-2' to='/dashboard/myclasses'>My Classes</NavLink>
-                                </>
-                            )}
+                            {
+                                isInstructor && <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Instructor Home</NavLink>
+                            }
+                            {
+                                isInstructor && <NavLink to='/dashboard/addclass' className='button mb-2'>Add Class</NavLink>
+                            }
+                            {
+                                isInstructor && <NavLink className='button mb-2' to='/dashboard/myclasses'>My Classes</NavLink>
+                            }
 
-                            {isAdmin === 'admin' && (
-                                <>
-                                    
-                                    <NavLink to='/dashboard/manageusers' className='button mb-2'>Manage Users</NavLink>
-                                    <NavLink className='button mb-2' to='/dashboard/manageclass'>Manage Classes</NavLink>
-                                </>
-                            )}
+
+
+                            {/* for admin only  */}
                             {
                                 isAdmin && <NavLink to='/dashboard/adminhome' className='button mb-2'>Admin Home</NavLink>
+                            }
+                            {
+                                isAdmin && <NavLink to='/dashboard/manageusers' className='button mb-2'>Manage Users</NavLink>
+                            }
+                            {
+                                isAdmin && <NavLink className='button mb-2' to='/dashboard/manageclass'>Manage Classes</NavLink>
                             }
                         </div>
                         <div className='divider'></div>
                         <div className='flex flex-col mb-2'>
-                            <NavLink className='button mb-2 flex' to='/'>Home</NavLink>
-                            <NavLink className='button' to='/classes'>Classes</NavLink>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default Dashboard;   */
-
-
-/* import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-
-const Dashboard = ({ role }) => {
-    const renderStudentLinks = () => {
-        return (
-            <>
-                <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
-                <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
-                <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
-                <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
-            </>
-        );
-    };
-
-    const renderInstructorLinks = () => {
-        return (
-            <>
-                <NavLink to='/dashboard/instructorhome' className='button mb-2'>Instructor Home</NavLink>
-                <NavLink to='/dashboard/addclass' className='button mb-2'>Add Class</NavLink>
-                <NavLink className='button mb-2' to='/dashboard/myclasses'>My Classes</NavLink>
-            </>
-        );
-    };
-
-    const renderAdminLinks = () => {
-        return (
-            <>
-                <NavLink to='/dashboard/adminhome' className='button mb-2'>Admin Home</NavLink>
-                <NavLink to='/dashboard/manageusers' className='button mb-2'>Manage Users</NavLink>
-                <NavLink className='button mb-2' to='/dashboard/manageclass'>Manage Classes</NavLink>
-            </>
-        );
-    };
-
-    return (
-        <div className=''>
-            <div className="drawer lg:drawer-open ">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
-                    <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="button button-primary drawer-button lg:hidden">Open drawer</label>
-                </div>
-                <div className="drawer-side glass">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu mt-1 p-4 w-80 h-full text-base-content">
-                        <div className='flex flex-col'>
-                            {role === 'student' && renderStudentLinks()}
-                            {role === 'instructor' && renderInstructorLinks()}
-                            {role === 'admin' && renderAdminLinks()}
-                        </div>
-                        <div className='divider'></div>
-                        <div className='flex flex-col mb-2'>
-                            <NavLink className='button mb-2 flex' to='/'>Home</NavLink>
+                            <NavLink className='button mb-2' to='/'>Home</NavLink>
                             <NavLink className='button' to='/classes'>Classes</NavLink>
                         </div>
                     </ul>
@@ -189,4 +138,3 @@ const Dashboard = ({ role }) => {
 };
 
 export default Dashboard;
- */

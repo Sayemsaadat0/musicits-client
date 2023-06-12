@@ -19,7 +19,7 @@ const SocialLogin = () => {
                     name: loggeduser.displayName,
                     role: 'student',
                 };
-                fetch('    https://musicits-server.vercel.app/users', {
+                fetch('    http://localhost:4444/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

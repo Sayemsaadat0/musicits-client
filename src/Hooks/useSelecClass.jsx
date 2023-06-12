@@ -11,7 +11,7 @@ const {  data: selectedclass=[],refetch } = useQuery({
     enabled: !loading,
 
   queryFn: async()=>{
-        const response = await fetch(`    https://musicits-server.vercel.app/selectedclass?email=${user?.email}`,
+        const response = await fetch(`    http://localhost:4444/selectedclass?email=${user?.email}`,
         {headers: {
           authorization : `bearer ${token}`
         }})

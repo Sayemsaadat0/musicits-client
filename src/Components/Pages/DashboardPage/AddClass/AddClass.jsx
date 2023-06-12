@@ -29,7 +29,7 @@ const AddClass = () => {
         };
         console.log(userData.available_seat);
        if (user) {
-             fetch('    https://musicits-server.vercel.app/manageclass', {
+             fetch('    http://localhost:4444/manageclass', {
                  method: 'POST',
                  headers: {
                      'content-type': 'application/json',

@@ -19,7 +19,7 @@ const SignUp = () => {
                     .then(() => {
                         const savedUser = { email: data.email,
                             name: data.name , role: 'student' }
-                        fetch('    https://musicits-server.vercel.app/users', {
+                        fetch('    http://localhost:4444/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

@@ -8,9 +8,8 @@ import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import useSelectedClass from '../../../../Hooks/useSelecClass';
 import { useLoaderData } from 'react-router-dom';
 
-
-
-
+// http://localhost:4444/
+// https://musicits-server.vercel.app/
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const Pay = () => {

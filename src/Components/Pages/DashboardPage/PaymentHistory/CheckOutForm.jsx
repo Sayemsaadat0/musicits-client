@@ -13,8 +13,8 @@ const CheckOutForm = ({payData}) => {
     const [axiosSecure] = useAxios()
     const [clientSecret, setClientSecret] = useState('')
     
-    https://musicits-server.vercel.app/
-    
+
+
     useEffect(()=>{
         console.log(payData);
         if(payData?.price > 0){

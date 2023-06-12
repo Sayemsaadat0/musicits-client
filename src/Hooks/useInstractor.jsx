@@ -7,7 +7,7 @@ const useInstractor = (email) => {
     const [isInstructorLoader, setisInstructorLoader]=useState(true)
     useEffect(()=>{
         if(email){
-            fetch(`http://localhost:4444/users/instructor/${email}`)
+            fetch(`https://musicits-server.vercel.app/users/instructor/${email}`)
             .then(res=>res.json())
             .then(data=>{
                 setisInstructor(data.isInstructor)

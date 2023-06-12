@@ -18,6 +18,7 @@ import DashboardHome from "../Pages/DashboardPage/DashboardHome/DashboardHome";
 import AdminHome from "../Pages/DashboardPage/AdminHome/AdminHome";
 import MyClasses from "../Pages/DashboardPage/MyClasses/MyClasses";
 import PrivateRoutes from "./PrivateRoutes";
+import FeedBack from "../Pages/DashboardPage/ManageClass/FeedBack";
 
 
 
@@ -78,7 +79,7 @@ const router = createBrowserRouter([
       {
         path : 'pay/:id', 
         element : <Pay></Pay> ,
-        loader : ({params})=> fetch(`http://localhost:4444/pay/${params.id}`)
+        loader : ({params})=> fetch(`https://musicits-server.vercel.app/pay/${params.id}`)
       },
       {
         path : 'enrolledclass',
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path : 'myclasses',
         element : <MyClasses></MyClasses>
+      },
+      {
+        path : 'feedback',
+        element : <FeedBack></FeedBack>
       },
      
     ]

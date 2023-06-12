@@ -13,7 +13,7 @@ import LazyLoad from 'react-lazy-load';
 const PopularClasses = () => {
   const [items, setItems] = useState([])
   useEffect(() => {
-    fetch('    http://localhost:4444/popularclass')
+    fetch('    https://musicits-server.vercel.app/popularclass')
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])

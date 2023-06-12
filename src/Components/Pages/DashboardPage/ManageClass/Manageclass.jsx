@@ -4,18 +4,19 @@ import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { Helmet } from 'react-helmet-async';
 // import { useQuery } from '@tanstack/react-query'; 
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 const Manageclass = () => {
     const [items, setItems] = useState([]);
  
     useEffect(() => {
-        fetch('    http://localhost:4444/manageclass')
+        fetch('    https://musicits-server.vercel.app/manageclass')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);  
 
     /*  const { data: manageclass = [], refetch } = useQuery(['manageclass'], async () => {
-        const res = await fetch('    http://localhost:4444/manageclass');
+        const res = await fetch('    https://musicits-server.vercel.app/manageclass');
         return res.data;
       }); 
  */
@@ -26,12 +27,12 @@ const Manageclass = () => {
             id : item._id,
             classTitle : item.classTitle ,
             picture : item.picture,
-            name : item.name,           
+            instractor_name : item.instractor_name,           
             email : item.email ,
             available_seat : item.available_seat,
             price: item.price,
-            statu: item.status}
-            fetch('    http://localhost:4444/updatedClass', {
+            status: item.status}
+            fetch('    https://musicits-server.vercel.app/updatedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -46,7 +47,7 @@ const Manageclass = () => {
     }
     // todo handle deny a  click korle 
     const handleDeny = (id) => {
-        fetch(`    http://localhost:4444/manageclass/${id}`, {
+        fetch(`    https://musicits-server.vercel.app/manageclass/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -82,7 +83,7 @@ const Manageclass = () => {
                             </thead>
                             <tbody>
                                 {items.map((item, index) => (
-                                    <tr className='table_row' key={index}>
+                                    <tr className='shadow-xl border' key={index}>
                                         <td>{index + 1}</td>
                                         <td>
                                             <img
@@ -95,7 +96,7 @@ const Manageclass = () => {
                                             <h4 className='font-bold'>{item.classTitle}</h4>
                                         </td>
                                         <td>
-                                            <h4 className='font-bold'>{item.name}</h4>
+                                            <h4 className='font-bold'>{item.instractor_name}</h4>
                                             <br />
                                             <p>{item.email}</p>
                                         </td>
@@ -106,12 +107,12 @@ const Manageclass = () => {
                                             </p>
                                         </td>
                                         <td>{item.status}</td>
-                                        <td>
+                                        <td className='flex flex-col '>
                                             <button onClick={()=>handleApprove(item)} className='button' >Approve</button>
                                             <br />
-                                            <button className='button mt-2' onClick={() => handleDeny(item._id)}>Deny</button>
+                                            <button className=' button' onClick={() => handleDeny(item._id)}>Deny</button>
                                             <br />
-                                            <button className='button mt-2'>FeedBack</button>
+                                            <Link to='/dashboard/feedback' className='button '>FeedBack</Link>
                                         </td>
                                     </tr>
                                 ))}

@@ -36,9 +36,3 @@ const Pay = () => {
 
 export default Pay;
 
-
-/* 
-
-    const total = selectedclass.reduce((sum, item) => sum + item.price, 0);
-        const price = parseFloat(total.toFixed(2))
-*/

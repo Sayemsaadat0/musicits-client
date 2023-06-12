@@ -7,7 +7,7 @@ const Manageclass = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4444/manageclass')
+        fetch('https://musicits-server.vercel.app/manageclass')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
@@ -23,7 +23,7 @@ const Manageclass = () => {
             available_seat : item.available_seat,
             price: item.price,
             statu: item.status}
-            fetch('http://localhost:4444/updatedClass', {
+            fetch('https://musicits-server.vercel.app/updatedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -38,7 +38,7 @@ const Manageclass = () => {
     }
     // todo handle deny a  click korle 
     const handleDeny = (id) => {
-        fetch(`http://localhost:4444/manageclass/${id}`, {
+        fetch(`https://musicits-server.vercel.app/manageclass/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

@@ -13,7 +13,7 @@ const Classes = () => {
 
 
     useEffect(() => {
-        fetch('    https://musicits-server.vercel.app/classes')
+        fetch('     https://musicits-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
@@ -31,7 +31,7 @@ const Classes = () => {
             email: user.email
         }
         if (user) {
-            fetch('    https://musicits-server.vercel.app/selectedclass', {
+            fetch('     https://musicits-server.vercel.app/selectedclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

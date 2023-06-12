@@ -8,7 +8,7 @@ const Instractors = () => {
     const [items, setitems] = useState([]);
 
 useEffect(() => {
-    fetch('    https://musicits-server.vercel.app/instractor')
+    fetch('     https://musicits-server.vercel.app/instractor')
         .then(res => res.json())
         .then(data => {
             console.log('data is not coming' );

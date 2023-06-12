@@ -5,7 +5,7 @@ const useAdmin=email=>{
     const [isAdminLoader, setIsAdminLoader]=useState(true)
     useEffect(()=>{
         if(email){
-            fetch(`    https://musicits-server.vercel.app/users/admin/${email}`)
+            fetch(`     https://musicits-server.vercel.app/users/admin/${email}`)
             .then(res=>res.json())
             .then(data=>{
                 setIsAdmin(data.isAdmin)

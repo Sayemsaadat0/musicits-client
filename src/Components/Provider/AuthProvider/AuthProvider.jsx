@@ -50,7 +50,7 @@ useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
         setUser(currentUser)
         if(currentUser){
-            axios.post('    https://musicits-server.vercel.app/jwt',{
+            axios.post('     https://musicits-server.vercel.app/jwt',{
                 email: currentUser.email
             })
             .then(data=>{

@@ -62,16 +62,16 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import useAdmin from '../../../Hooks/useAdmin';
-import useStudent from '../../../Hooks/useStudent';
 import useInstractor from '../../../Hooks/useInstractor';
+import useStudent from '../../../Hooks/useStudent';
 
 const Dashboard = () => {
     // todo do same thing for instractor
     const { user } = useAuth()
     const [isAdmin] = useAdmin(user.email)
-    const [isTudent] = useStudent(user.email)
+    const [isStudent] = useStudent(user.email)
     const [isInstructor] = useInstractor(user.email)
-    console.log('isInstructor;', isInstructor, 'isTudent', isTudent);
+    console.log('isInstructor;', isInstructor, 'isStudent', isStudent);
 
     return (
         <div className=''>
@@ -88,16 +88,16 @@ const Dashboard = () => {
                         <div className='flex flex-col'>
                             {/* for student */}
                             {
-                                isTudent && <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
+                                isStudent && <NavLink to='/dashboard/dashboardhome' className='button mb-2'>Student Home</NavLink>
                             }
                             {
-                                isTudent && <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
+                                isStudent && <NavLink to='/dashboard/selectedclass' className='button mb-2'>Selected classes</NavLink>
                             }
                             {
-                                isTudent && <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
+                                isStudent && <NavLink className='button mb-2' to='/dashboard/enrolledclass'>Enrolled classes</NavLink>
                             }
                             {
-                                isTudent && <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
+                                isStudent && <NavLink className='button mb-2' to='/dashboard/paymenthistory'>Payment history</NavLink>
                             }
 
                             {/* for Instractor */}

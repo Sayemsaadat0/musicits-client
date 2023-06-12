@@ -5,7 +5,7 @@ const useStudent=email=>{
     const [isStudentLoader, setisStudentLoader]=useState(true)
     useEffect(()=>{
         if(email){
-            fetch(`    https://musicits-server.vercel.app/users/student/${email}`)
+            fetch(`     https://musicits-server.vercel.app/users/student/${email}`)
             .then(res=>res.json())
             .then(data=>{
                 setisStudent(data.isStudent)

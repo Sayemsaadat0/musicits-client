@@ -76,8 +76,10 @@ const router = createBrowserRouter([
         element : <SelectedClass></SelectedClass>
       },
       {
-        path : 'pay',
-        element : <Pay></Pay>
+        path : 'pay/:id', 
+        element : <Pay></Pay> ,
+        loader : ({params})=> fetch(`http://localhost:4444/pay/${params.id}`)
+        
       },
       {
         path : 'enrolledclass',

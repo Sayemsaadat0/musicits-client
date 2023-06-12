@@ -7,7 +7,7 @@ const Manageclass = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('https://musicits-server.vercel.app/manageclass')
+        fetch('http://localhost:4444/manageclass')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
@@ -23,7 +23,7 @@ const Manageclass = () => {
             available_seat : item.available_seat,
             price: item.price,
             statu: item.status}
-            fetch('https://musicits-server.vercel.app/updatedClass', {
+            fetch('http://localhost:4444/updatedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -38,7 +38,7 @@ const Manageclass = () => {
     }
     // todo handle deny a  click korle 
     const handleDeny = (id) => {
-        fetch(`https://musicits-server.vercel.app/manageclass/${id}`, {
+        fetch(`http://localhost:4444/manageclass/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -93,7 +93,7 @@ const Manageclass = () => {
                                         <td>
                                             <p>Available Seats: {item.available_seat}</p>
                                             <p>
-                                                Price: $<span className='text-red-500'>{item.price}</span>
+                                                Price: <span className='text-red-500'>{item.price}</span>
                                             </p>
                                         </td>
                                         <td>{item.status}</td>

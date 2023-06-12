@@ -10,7 +10,7 @@ const useAxios = () => {
     const navigate = useNavigate()
 
     const axiosSecure = axios.create({
-        baseURL: 'https://musicits-server.vercel.app/'
+        baseURL: 'http://localhost:4444/'
     })
     useEffect(()=>{
         axiosSecure.interceptors.request.use((config)=>{

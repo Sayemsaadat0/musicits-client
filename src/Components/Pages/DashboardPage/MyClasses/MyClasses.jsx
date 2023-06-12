@@ -1,9 +1,7 @@
-import React from 'react';
 import { Fade } from 'react-reveal';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { Helmet } from 'react-helmet-async';
 import useMyClass from '../../../../Hooks/useMycClass';
-import { GrDocumentUpdate } from 'react-icons/gr';
 const MyClasses = () => {
     const [MyClass, refetch] = useMyClass()
     return (
@@ -12,13 +10,11 @@ const MyClasses = () => {
                 <title>My Class</title>
             </Helmet>
             <Fade left>
-                <SectionTitle title1={'Manage'} title2={'All Classes'}></SectionTitle>
+                <SectionTitle title1={'My'} title2={'Classes'}></SectionTitle>
                 <div>
                     <h3 className='text-3xl font-bold underline'>Total Users : </h3>
                     <div className="overflow-x-auto">
                         <table className="table">
-                            {/* head */}
-
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -30,7 +26,6 @@ const MyClasses = () => {
                                 </tr>
                             </thead>
                             <tbody >
-
                                 {
                                     MyClass.map((item, index) => (
                                         <tr key={item._id}>

@@ -8,17 +8,25 @@ import Swal from 'sweetalert2'
 
 const AddClass = () => {
     const { user } = useAuth();
-    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [addClassError, setAddClassError] = useState(null);
+    const [data, setData] = useState([]);
 
-    const handleAddClass = (data) => {
-        const userData = { classTitle: data.classTitle, picture: data.picture,
-             name: data.name,email: data.email, available_seat: data.available_seat,
-            price: data.price,status: 'pending'
-        }; 
+
+    const handleAddClass = (data) => { 
+        console.log(data);
+        const userData = {
+            classTitle: data.classTitle,
+            picture: data.picture,
+            instractor_name: data.instractor_name,
+            email: data.email,
+            available_seat: data.available_seat,
+            price: data.price,
+            status: 'pending'
+        };
         console.log(userData);
-       if (user) {
-            fetch('https://musicits-server.vercel.app/manageclass', {
+        if (user) {
+            fetch('http://localhost:4444/manageclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -39,7 +47,7 @@ const AddClass = () => {
         } else {
             alert('You have to login first to add a class');
             navigate('/login');
-        } 
+        }
     };
 
     const onSubmit = (data) => {
@@ -86,7 +94,7 @@ const AddClass = () => {
                                 <span className="">Name</span>
                             </label>
                             <input
-                                {...register("name", { required: "Name is required" })}
+                                {...register("instractor_name", { required: "Name is required" })}
                                 type="text"
                                 defaultValue={user.displayName}
                                 readOnly
@@ -136,8 +144,8 @@ const AddClass = () => {
 
                         {addClassError && <p className="text-red-600">{addClassError}</p>}
 
-                        <button 
-                        onClick={()=>handleAddClass()}
+                        <button
+                            onClick={() => handleAddClass(data)}
                             className='btn button mt-5 border-red-500 mx-auto'
                             type="submit">
                             Add Class

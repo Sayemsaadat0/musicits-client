@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 
 
-const CheckOutForm = ({price}) => {
+const CheckOutForm = ({paydata}) => {
     const {user} = useAuth()
     const stripe = useStripe()
     const elements = useElements()
@@ -15,8 +15,8 @@ const CheckOutForm = ({price}) => {
 
 
     useEffect(()=>{
-        console.log(price);
-        axiosSecure.post('/create-payment-intent', {price})
+        console.log(paydata);
+        axiosSecure.post('/create-payment-intent', {paydata})
         .then(res=>{
             console.log(res.data.clientSecret)
             setClientSecret(res.data.clientSecret)

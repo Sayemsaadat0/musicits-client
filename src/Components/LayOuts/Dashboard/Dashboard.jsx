@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div className=''>
+        <div className='r'>
             <div className="drawer lg:drawer-open ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
@@ -57,13 +57,17 @@ const Dashboard = () => {
 export default Dashboard;
 
 
-/* 
-import React from 'react';
+
+/* import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import useAdmin from '../../../Hooks/useAdmin';
 
 const Dashboard = () => { 
-    const {user} = useAuth() 
+    todo do same thing for instractor
+    const {user} = useAuth()  
+    const [isAdmin] = useAdmin(user.email)
+    
     return (
         <div className=''>
             <div className="drawer lg:drawer-open ">
@@ -95,14 +99,16 @@ const Dashboard = () => {
                                 </>
                             )}
 
-                            {user.role === 'Admin' && (
+                            {isAdmin === 'admin' && (
                                 <>
-                                    <Link to='/dashboard/adminhome' className='button mb-5'>Admin Home</Link>
+                                    
                                     <Link to='/dashboard/manageusers' className='button mb-5'>Manage Users</Link>
                                     <Link className='button mb-5' to='/dashboard/manageclass'>Manage Classes</Link>
                                 </>
                             )}
-
+                            {
+                                isAdmin && <Link to='/dashboard/adminhome' className='button mb-5'>Admin Home</Link>
+                            }
                         </div>
                         <div className='divider'></div>
                         <div className='flex flex-col mb-5'>
@@ -116,7 +122,7 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;  */
+export default Dashboard;   */
 
 
 /* import React from 'react';

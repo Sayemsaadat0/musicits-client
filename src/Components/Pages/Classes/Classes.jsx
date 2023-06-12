@@ -13,7 +13,7 @@ const Classes = () => {
 
 
     useEffect(() => {
-        fetch('https://musicits-server.vercel.app/classes')
+        fetch('http://localhost:4444/classes')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
@@ -22,15 +22,16 @@ const Classes = () => {
     // problem- failed to fetch 
     const handleSelect = (item) => {
         const addedItem = {
-            _id : item._id,
-            price:item.price,
-            available_seat : item.available_seat,
-            classTitle:item.classTitle,
-             instractor_name:item.instractor_name ,
-             picture:item.picture,
-             email : user.email} 
-        if(user) {
-            fetch('https://musicits-server.vercel.app/selectedclass', {
+            _id: item._id,
+            price: item.price,
+            available_seat: item.available_seat,
+            classTitle: item.classTitle,
+            instractor_name: item.instractor_name,
+            picture: item.picture,
+            email: user.email
+        }
+        if (user) {
+            fetch('http://localhost:4444/selectedclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -48,7 +49,7 @@ const Classes = () => {
                 .catch(error => {
                     console.error('Error selecting class:', error);
                 });
-        } 
+        }
         else {
             Swal.fire({
                 icon: 'error',
@@ -58,7 +59,7 @@ const Classes = () => {
         }
     };
     return (
-        <div>
+        <div className=''>
             <Helmet>
                 <title>musicits || Classes</title>
             </Helmet>
@@ -69,15 +70,15 @@ const Classes = () => {
                     <div
                         style={{ backgroundColor: item.available_seat === 0 ? 'red' : 'white' }}
                         key={item._id}
-                        className="card ">
+                        className="card border shadow-xl">
                         <LazyLoad threshold={0.95}>
                             <figure>
-                                <img src={item.picture} alt="car!" />
+                                <img className='w-full rounded-xl' src={item.picture} alt="car!" />
                             </figure>
                         </LazyLoad>
                         <div className="card-body">
-                            <h2 className="card-title">{item.classtitle}</h2>
-                            <p className='font-semibold'>{item.instructor_name}</p>
+                            <h2 className="card-title">Class Title: {item.classTitle}</h2>
+                            <p className='font-semibold'>Instructor Name: {item.instractor_name}</p>
                             <p>Available Seats: {item.available_seat}</p>
                             <p>Price: <span className='text-red-500'>{item.price}</span></p>
                             <div className="card-actions">

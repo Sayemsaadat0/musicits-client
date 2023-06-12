@@ -8,9 +8,6 @@ import Swal from 'sweetalert2';
 import useSelectedClass from '../../../../Hooks/useSelecClass';
 
 const SelectedClass = () => {
-
-
-
     const [selectedclass, refetch] = useSelectedClass([])
 
     const handleDelete = item => {
@@ -23,28 +20,25 @@ const SelectedClass = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         })
-        .then((result) => {
-            if (result.isConfirmed) {
-                fetch(`https://musicits-server.vercel.app/selectedclass/${item._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch()
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
+            .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:4444/selectedclass/${item._id}`, {
+                        method: 'DELETE'
                     })
-            }
-        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount > 0) {
+                                refetch()
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                            }
+                        })
+                }
+            })
     }
-
-
-
     return (
         <div className='w-full p-5 h-screen  '>
             <Helmet>
@@ -71,12 +65,15 @@ const SelectedClass = () => {
                             {
                                 selectedclass.map((item, index) => <tr key={item._id}>
                                     <th>{++index}</th>
-                                    <td>{item.classtitle}</td>
+                                    <td>{item.classTitle}</td>
                                     <td>{item.instractor_name}</td>
                                     <td>Price : <span className='text-xl font-semibold text-red-400'>{item.price}</span> <br />
                                         Available Seats : {item.available_seat}
                                     </td>
-                                    <td><Link to='/dashboard/pay' className='button'>Pay</Link></td>
+                                    <td>
+                                        <Link to={`/dashboard/pay/${item._id}`} className='button'>Pay</Link>
+                                    </td>
+
                                     <td><button onClick={() => handleDelete(item)} className="delete"><BsTrash></BsTrash> </button></td>
                                 </tr>)
                             }
@@ -90,19 +87,3 @@ const SelectedClass = () => {
 };
 
 export default SelectedClass;
-
-
-
-
-
-
-
-
-/*     const [items, setItems] = useState([])
-    useEffect(()=>{
-        fetch(`https://musicits-server.vercel.app/selectedclass/${items.email}`)
-        .then(res=>res.json())
-        .then(data=> {
-            setItems(data);
-        })
-    },[]) */
